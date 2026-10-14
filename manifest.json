@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Fil",
+  "version": "0.2.0",
+  "description": "Relis une conversation Messenger exportée, découpée en conversations, avec une recherche qui comprend la darja écrite en lettres, des favoris et des résumés faits par ton LLM.",
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Fil",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  }
+}

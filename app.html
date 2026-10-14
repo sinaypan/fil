@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Fil</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <aside id="side">
+    <div id="who">
+      <h1 id="title">Fil</h1>
+      <p id="span"></p>
+      <div id="threads" class="chips" hidden></div>
+    </div>
+    <label id="searchbox">
+      <span data-icon="search"></span>
+      <input id="q" type="text" placeholder="Rechercher ou poser une question" autocomplete="off" spellcheck="false">
+      <button id="clear" type="button" aria-label="Effacer la recherche" hidden><span data-icon="close"></span></button>
+    </label>
+    <nav id="tabs" class="segmented">
+      <button type="button" data-view="fil"><span data-icon="bubble"></span>Fil</button>
+      <button type="button" data-view="resumes"><span data-icon="doc"></span>Résumés</button>
+      <button type="button" data-view="frise"><span data-icon="frise"></span>Frise</button>
+      <button type="button" data-view="analyse" class="icon-only" title="Analyse : chiffres, humeur, portrait" aria-label="Analyse"><span data-icon="chart"></span></button>
+      <button type="button" data-view="favoris" class="icon-only" title="Favoris" aria-label="Favoris"><span data-icon="star"></span></button>
+    </nav>
+    <div id="filterbar" hidden></div>
+    <ol id="timeline"></ol>
+    <div id="batch" hidden></div>
+    <footer>
+      <button id="import" type="button" class="pill accent"><span data-icon="import"></span>Importer</button>
+      <button id="backup" type="button" class="pill"><span data-icon="save"></span>Sauvegarder</button>
+      <button id="settings" type="button" class="pill round" title="Réglages" aria-label="Réglages"><span data-icon="sliders"></span></button>
+    </footer>
+  </aside>
+  <main id="main">
+    <div id="notice" hidden><p id="notice-text"></p><button id="notice-close" type="button" aria-label="Fermer"><span data-icon="close"></span></button></div>
+    <div id="view"></div>
+  </main>
+  <div id="filtercard" hidden></div>
+  <div id="drop" hidden><p>Dépose le fichier ici</p></div>
+  <input id="file" type="file" accept=".json,application/json" multiple hidden>
+  <div id="print"></div>
+  <script src="app.js" defer></script>
+  <script src="cuts.js" defer></script>
+  <script src="memory.js" defer></script>
+  <script src="export.js" defer></script>
+  <script src="stats.js" defer></script>
+  <script src="start.js" defer></script>
+</body>
+</html>
