@@ -1,0 +1,3785 @@
+{
+  "nOtherMessage_one": {
+    "message": "$COUNT$ autre message",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nOtherMessage_other": {
+    "message": "$COUNT$ autres messages",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nChapter_one": {
+    "message": "$COUNT$ chapitre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nChapter_other": {
+    "message": "$COUNT$ chapitres",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvWaiting_one": {
+    "message": "$COUNT$ conversation attend",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvWaiting_other": {
+    "message": "$COUNT$ conversations attendent",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvImported_one": {
+    "message": "$COUNT$ conversation importée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvImported_other": {
+    "message": "$COUNT$ conversations importées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvRejoined_one": {
+    "message": "$COUNT$ conversation recollée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvRejoined_other": {
+    "message": "$COUNT$ conversations recollées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvSummarized_one": {
+    "message": "$COUNT$ conversation résumée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvSummarized_other": {
+    "message": "$COUNT$ conversations résumées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConv_one": {
+    "message": "$COUNT$ conversation",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConv_other": {
+    "message": "$COUNT$ conversations",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nCut_one": {
+    "message": "$COUNT$ coupure",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nCut_other": {
+    "message": "$COUNT$ coupures",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nAlreadyThere_one": {
+    "message": "$COUNT$ déjà présent",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nAlreadyThere_other": {
+    "message": "$COUNT$ déjà présents",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nError_one": {
+    "message": "$COUNT$ erreur",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nError_other": {
+    "message": "$COUNT$ erreurs",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nFavorite_one": {
+    "message": "$COUNT$ favori",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nFavorite_other": {
+    "message": "$COUNT$ favoris",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nTimes_one": {
+    "message": "$COUNT$ fois",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nTimes_other": {
+    "message": "$COUNT$ fois",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMerge_one": {
+    "message": "$COUNT$ fusion",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMerge_other": {
+    "message": "$COUNT$ fusions",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nGroup_one": {
+    "message": "$COUNT$ groupe",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nGroup_other": {
+    "message": "$COUNT$ groupes",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nIgnored_one": {
+    "message": "$COUNT$ ignoré",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nIgnored_other": {
+    "message": "$COUNT$ ignorés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nDay_one": {
+    "message": "$COUNT$ jour",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nDay_other": {
+    "message": "$COUNT$ jours",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nLink_one": {
+    "message": "$COUNT$ lien",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nLink_other": {
+    "message": "$COUNT$ liens",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMember_one": {
+    "message": "$COUNT$ membre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMember_other": {
+    "message": "$COUNT$ membres",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageAdded_one": {
+    "message": "$COUNT$ message ajouté",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageAdded_other": {
+    "message": "$COUNT$ messages ajoutés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nShortNotSummarized_one": {
+    "message": "$COUNT$ message court non résumé",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nShortNotSummarized_other": {
+    "message": "$COUNT$ messages courts non résumés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageKept_one": {
+    "message": "$COUNT$ message gardé",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageKept_other": {
+    "message": "$COUNT$ messages gardés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageFound_one": {
+    "message": "$COUNT$ message trouvé",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessageFound_other": {
+    "message": "$COUNT$ messages trouvés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessage_one": {
+    "message": "$COUNT$ message",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMessage_other": {
+    "message": "$COUNT$ messages",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMonth_one": {
+    "message": "$COUNT$ mois",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMonth_other": {
+    "message": "$COUNT$ mois",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nName_one": {
+    "message": "$COUNT$ nom",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nName_other": {
+    "message": "$COUNT$ noms",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nNewMessage_one": {
+    "message": "$COUNT$ nouveau message",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nNewMessage_other": {
+    "message": "$COUNT$ nouveaux messages",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nNewCut_one": {
+    "message": "$COUNT$ nouvelle coupure",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nNewCut_other": {
+    "message": "$COUNT$ nouvelles coupures",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nQuestionAsked_one": {
+    "message": "$COUNT$ question posée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nQuestionAsked_other": {
+    "message": "$COUNT$ questions posées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummaryRead_one": {
+    "message": "$COUNT$ résumé lu",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummaryRead_other": {
+    "message": "$COUNT$ résumés lus",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummaryUpdated_one": {
+    "message": "$COUNT$ résumé mis à jour",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummaryUpdated_other": {
+    "message": "$COUNT$ résumés mis à jour",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummary_one": {
+    "message": "$COUNT$ résumé",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSummary_other": {
+    "message": "$COUNT$ résumés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSilence_one": {
+    "message": "$COUNT$ silence",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nSilence_other": {
+    "message": "$COUNT$ silences",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nTooShortOrRedo_one": {
+    "message": "$COUNT$ trop courte ou à refaire",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nTooShortOrRedo_other": {
+    "message": "$COUNT$ trop courtes ou à refaire",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nToRedo_one": {
+    "message": "$COUNT$ à refaire",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nToRedo_other": {
+    "message": "$COUNT$ à refaire",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nWeek_one": {
+    "message": "$COUNT$ semaine",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nWeek_other": {
+    "message": "$COUNT$ semaines",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvTagged_one": {
+    "message": "$COUNT$ conversation taguée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nConvTagged_other": {
+    "message": "$COUNT$ conversations taguées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "extName": {
+    "message": "Fil"
+  },
+  "extDesc": {
+    "message": "Relis et retiens tes conversations exportées (Messenger, WhatsApp, Telegram, Instagram, Discord) : par personne, résumées et taguées par ton LLM, avec une recherche qui comprend la darja, un graphe et une page par mois de ta vie."
+  },
+  "durMin": {
+    "message": "$M$ min",
+    "placeholders": {
+      "m": {
+        "content": "$1"
+      }
+    }
+  },
+  "durDays": {
+    "message": "$D$ jours",
+    "placeholders": {
+      "d": {
+        "content": "$1"
+      }
+    }
+  },
+  "durHours": {
+    "message": "$H$ h",
+    "placeholders": {
+      "h": {
+        "content": "$1"
+      }
+    }
+  },
+  "durHoursMin": {
+    "message": "$H$ h $M$",
+    "placeholders": {
+      "h": {
+        "content": "$1"
+      },
+      "m": {
+        "content": "$2"
+      }
+    }
+  },
+  "writeCancelled": {
+    "message": "écriture annulée"
+  },
+  "importNew": {
+    "message": "$WHERE$ : $WHAT$",
+    "placeholders": {
+      "where": {
+        "content": "$1"
+      },
+      "what": {
+        "content": "$2"
+      }
+    }
+  },
+  "noNewMessage": {
+    "message": "aucun nouveau message"
+  },
+  "ignoredBecause": {
+    "message": "$IGNORED$ car dans une période que tu avais déjà",
+    "placeholders": {
+      "ignored": {
+        "content": "$1"
+      }
+    }
+  },
+  "importNow": {
+    "message": "$PARTS$. Tu as maintenant $SPAN$.",
+    "placeholders": {
+      "parts": {
+        "content": "$1"
+      },
+      "span": {
+        "content": "$2"
+      }
+    }
+  },
+  "backupRestored": {
+    "message": "Sauvegarde « $NAME$ » réimportée : $MESSAGES$, $SUMMARIES$, $FAVORITES$.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "messages": {
+        "content": "$2"
+      },
+      "summaries": {
+        "content": "$3"
+      },
+      "favorites": {
+        "content": "$4"
+      }
+    }
+  },
+  "noRoomConvs": {
+    "message": "Plus de place pour enregistrer les conversations sur ce PC."
+  },
+  "pendingOnHome": {
+    "message": "$WAITING$ une réponse sur l’accueil (quel nom est le tien, ou de quelle plateforme vient le fichier).",
+    "placeholders": {
+      "waiting": {
+        "content": "$1"
+      }
+    }
+  },
+  "moreLines": {
+    "message": "… et $COUNT$ autres lignes.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRoomConv": {
+    "message": "Plus de place pour enregistrer la conversation sur ce PC."
+  },
+  "addFailed": {
+    "message": "L’ajout a échoué : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupFile": {
+    "message": "fil-sauvegarde-$DATE$.json",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupSaved": {
+    "message": "Sauvegarde enregistrée dans Téléchargements : $NAME$\nElle contient la conversation, tes résumés et tes favoris (pas ta clé de LLM). « Importer » la remet en place, par exemple après avoir réinstallé l’extension.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupFailed": {
+    "message": "La sauvegarde a échoué : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "spanFromTo": {
+    "message": "du $FROM$ au $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "spanThen": {
+    "message": ", puis "
+  },
+  "noMessage": {
+    "message": "aucun message"
+  },
+  "noLlm": {
+    "message": "Aucun LLM configuré : ouvre les Réglages."
+  },
+  "noLlmPermission": {
+    "message": "Fil n’a pas encore le droit de contacter ce service. Ouvre les Réglages et clique sur « Enregistrer et tester »."
+  },
+  "llmTimeout": {
+    "message": "Le service n’a pas répondu en 2 minutes."
+  },
+  "llmUnreachable": {
+    "message": "Impossible de joindre $HOST$ : vérifie l’adresse et ta connexion.",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "llmKeyRefused": {
+    "message": " La clé est refusée."
+  },
+  "llmCheckModel": {
+    "message": " Vérifie l’adresse et le nom du modèle."
+  },
+  "llmStatus": {
+    "message": "Le service a répondu $STATUS$.$HINT$",
+    "placeholders": {
+      "status": {
+        "content": "$1"
+      },
+      "hint": {
+        "content": "$2"
+      }
+    }
+  },
+  "llmNoText": {
+    "message": "Le service a répondu, mais sans texte (format inattendu)."
+  },
+  "pGroup": {
+    "message": "Tu résumes des conversations $WHERE$ privées du groupe « $GROUP$ » : $ME$ (c’est lui qui te demande le résumé) et $OTHERS$. Dis qui fait ou dit quoi.",
+    "placeholders": {
+      "where": {
+        "content": "$1"
+      },
+      "group": {
+        "content": "$2"
+      },
+      "me": {
+        "content": "$3"
+      },
+      "others": {
+        "content": "$4"
+      }
+    }
+  },
+  "pPair": {
+    "message": "Tu résumes des conversations $WHERE$ privées entre $ME$ (c’est lui qui te demande le résumé) et $OTHERS$.",
+    "placeholders": {
+      "where": {
+        "content": "$1"
+      },
+      "me": {
+        "content": "$2"
+      },
+      "others": {
+        "content": "$3"
+      }
+    }
+  },
+  "pLanguages": {
+    "message": "Elles sont écrites en darja algérienne (en lettres latines, avec des chiffres pour certains sons : 3 = ع, 7 = ح, 9 = ق, 5 = خ, 8 = غ), en français et en anglais, souvent mélangés dans la même phrase."
+  },
+  "pMemory": {
+    "message": "$ME$ a des trous de mémoire : il veut pouvoir retrouver plus tard ce qui s’est dit.",
+    "placeholders": {
+      "me": {
+        "content": "$1"
+      }
+    }
+  },
+  "pAnswerIn": {
+    "message": "Réponds en français, exactement dans ce format :",
+    "placeholders": {
+      "language": {
+        "content": "$1"
+      }
+    }
+  },
+  "pTitleLine": {
+    "message": "TITRE: <de 4 à 8 mots qui disent le sujet principal>"
+  },
+  "pTagsLine": {
+    "message": "TAGS: <de 2 à 5 tags, famille/nom, séparés par des virgules>"
+  },
+  "pKeep": {
+    "message": "Garde : les faits, les décisions, les projets et les dates, ce que chacun a promis ou demandé, les émotions ou tensions importantes, et ce qui reste en suspens. Si la conversation change de sujet, un point par sujet. Cite une phrase courte seulement si elle compte vraiment."
+  },
+  "pLength": {
+    "message": "De 2 à 8 points selon la longueur. Pas d’introduction, pas de conclusion, pas de conseils."
+  },
+  "pContext": {
+    "message": "Contexte, pour comprendre les références (résumés des conversations juste avant, à ne pas résumer) :"
+  },
+  "pToSummarize": {
+    "message": "Conversation à résumer : $LABEL$ ($COUNT$).",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "summaryFailed": {
+    "message": "Le résumé n’a pas pu être fait.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "stoppedAfter3": {
+    "message": "Arrêté après 3 erreurs de suite."
+  },
+  "nFailed": {
+    "message": "$COUNT$ en échec.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "stopped": {
+    "message": " (arrêté)"
+  },
+  "allTagged": {
+    "message": "Toutes ces conversations résumées ont déjà des tags."
+  },
+  "allSummarized": {
+    "message": "Toutes ces conversations ont déjà un résumé (ou sont trop courtes pour en avoir un)."
+  },
+  "batchTags": {
+    "message": "Tags"
+  },
+  "batchSummaries": {
+    "message": "Résumés"
+  },
+  "stop": {
+    "message": "Arrêter"
+  },
+  "keepTabOpen": {
+    "message": "Garde cet onglet ouvert."
+  },
+  "kindTopics": {
+    "message": "Sujets"
+  },
+  "kindTopicsWhat": {
+    "message": "de quoi on parle"
+  },
+  "kindMood": {
+    "message": "Ambiance"
+  },
+  "kindMoodWhat": {
+    "message": "le ton de l’échange"
+  },
+  "tRules1": {
+    "message": "Les tags servent à retrouver les conversations plus tard. Deux familles :"
+  },
+  "tRules2": {
+    "message": "- sujet : de quoi on parle (par exemple cadeaux, études, travail, famille, argent, sortie, santé, voyage)"
+  },
+  "tRules3": {
+    "message": "- ambiance : le ton de l’échange (par exemple conflit, débat, tendresse, tristesse, humour, joie, stress, réconciliation)"
+  },
+  "tRules4": {
+    "message": "Donne de 2 à 5 tags, dont au moins un tag ambiance, écrits famille/nom : sujet/cadeaux, ambiance/conflit."
+  },
+  "tRules5": {
+    "message": "Réutilise d’abord les tags existants, même si tu aurais choisi un mot voisin (pas « triste » si « tristesse » existe)."
+  },
+  "tRules6": {
+    "message": "N’en crée un nouveau que si aucun ne convient vraiment : un nom commun court, en français, au singulier, en minuscules.",
+    "placeholders": {
+      "language": {
+        "content": "$1"
+      }
+    }
+  },
+  "tNone": {
+    "message": "Tags existants : aucun pour l’instant, crée les premiers."
+  },
+  "tNoneOfKind": {
+    "message": "(aucun)"
+  },
+  "tFull": {
+    "message": "\nLa liste est complète : utilise uniquement ces tags."
+  },
+  "tExisting": {
+    "message": "Tags existants (réutilise-les) :"
+  },
+  "tOnlyTags": {
+    "message": "Tu dois seulement mettre des tags sur une conversation."
+  },
+  "tOneLine": {
+    "message": "Réponds par une seule ligne : TAGS: famille/nom, famille/nom"
+  },
+  "tConversation": {
+    "message": "Conversation : $LABEL$",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      }
+    }
+  },
+  "tNoLine": {
+    "message": "Le LLM n’a pas donné de ligne « TAGS: »."
+  },
+  "tMerged": {
+    "message": "« $TAG$ » fusionné dans « $INTO$ » ($COUNT$).",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      },
+      "into": {
+        "content": "$2"
+      },
+      "count": {
+        "content": "$3"
+      }
+    }
+  },
+  "tDeleted": {
+    "message": "Tag « $TAG$ » supprimé (retiré de $COUNT$).",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "tListFull": {
+    "message": "La liste a déjà $MAX$ tags : fusionne ou supprime-en un avant d’en ajouter.",
+    "placeholders": {
+      "max": {
+        "content": "$1"
+      }
+    }
+  },
+  "tSeeAll": {
+    "message": "Voir toutes les conversations avec ce tag"
+  },
+  "tRemoveHere": {
+    "message": "Retirer ce tag de cette conversation"
+  },
+  "tRemoveName": {
+    "message": "Retirer $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "tFind": {
+    "message": "Trouver les tags"
+  },
+  "tFindFailed": {
+    "message": "Les tags n’ont pas pu être trouvés.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "tAddByHand": {
+    "message": "Ajouter un tag à la main"
+  },
+  "tAddButton": {
+    "message": "+ Tag"
+  },
+  "tNewPlaceholder": {
+    "message": "Nouveau tag, puis Entrée"
+  },
+  "tFindFor": {
+    "message": "Trouver les tags de $COUNT$ résumées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "tHeadTitle": {
+    "message": "Tags"
+  },
+  "tHeadSub": {
+    "message": "$COUNT$ / $MAX$ tags · $TAGGED$ conversations taguées sur $SUMMARIZED$ résumées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "max": {
+        "content": "$2"
+      },
+      "tagged": {
+        "content": "$3"
+      },
+      "summarized": {
+        "content": "$4"
+      }
+    }
+  },
+  "tHint": {
+    "message": "Le LLM met les tags en résumant, en réutilisant cette liste. Ici tu les gardes propres : renomme, fusionne deux tags qui disent la même chose, change de famille, supprime. Les résumés sont mis à jour sans rien renvoyer au LLM."
+  },
+  "tAddOfKind": {
+    "message": "Ajouter un tag $KIND$…",
+    "placeholders": {
+      "kind": {
+        "content": "$1"
+      }
+    }
+  },
+  "tNoneYet": {
+    "message": "Aucun pour l’instant."
+  },
+  "rename": {
+    "message": "Renommer"
+  },
+  "tMergeInto": {
+    "message": "Fusionner dans…"
+  },
+  "tToMood": {
+    "message": "Passer en ambiance"
+  },
+  "tToTopic": {
+    "message": "Passer en sujet"
+  },
+  "delete": {
+    "message": "Supprimer"
+  },
+  "save": {
+    "message": "Enregistrer"
+  },
+  "cancel": {
+    "message": "Annuler"
+  },
+  "tBecomes": {
+    "message": "« $TAG$ » devient :",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      }
+    }
+  },
+  "tYesRemove": {
+    "message": "Oui, retirer de $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "tYesDelete": {
+    "message": "Oui, supprimer"
+  },
+  "tSeeThese": {
+    "message": "Voir ces conversations"
+  },
+  "fAll": {
+    "message": "Toutes"
+  },
+  "fSummarized": {
+    "message": "Résumées"
+  },
+  "fNotSummarized": {
+    "message": "Pas résumées"
+  },
+  "fToRedo": {
+    "message": "À refaire"
+  },
+  "fNoTags": {
+    "message": "Sans tags"
+  },
+  "fWithFavorites": {
+    "message": "Avec favoris"
+  },
+  "fOldest": {
+    "message": "Plus anciennes d’abord"
+  },
+  "fNewest": {
+    "message": "Plus récentes d’abord"
+  },
+  "fMostMessages": {
+    "message": "Plus de messages"
+  },
+  "fLongest": {
+    "message": "Plus longues"
+  },
+  "fLongestSilence": {
+    "message": "Plus long silence avant"
+  },
+  "fMostFavorites": {
+    "message": "Plus de favoris"
+  },
+  "fMinMessages": {
+    "message": "$MIN$+ messages",
+    "placeholders": {
+      "min": {
+        "content": "$1"
+      }
+    }
+  },
+  "fFiltered": {
+    "message": "Filtré"
+  },
+  "fFilterSort": {
+    "message": "Filtrer et trier"
+  },
+  "fRemove": {
+    "message": "Enlever les filtres"
+  },
+  "fEverything": {
+    "message": "Tout"
+  },
+  "fLast7": {
+    "message": "7 derniers jours"
+  },
+  "fLast30": {
+    "message": "30 derniers jours"
+  },
+  "fThisMonth": {
+    "message": "Ce mois-ci"
+  },
+  "fLastMonth": {
+    "message": "Mois dernier"
+  },
+  "fTimelineSelection": {
+    "message": "Sélection de la frise"
+  },
+  "fNotChosen": {
+    "message": "non choisi"
+  },
+  "fResetAll": {
+    "message": "Tout réinitialiser"
+  },
+  "close": {
+    "message": "Fermer"
+  },
+  "fPeriod": {
+    "message": "Période"
+  },
+  "fFrom": {
+    "message": "Du"
+  },
+  "fTo": {
+    "message": "Au"
+  },
+  "fTags": {
+    "message": "Tags"
+  },
+  "fManageTags": {
+    "message": "Gérer les tags"
+  },
+  "fAllTags": {
+    "message": "Tous ces tags"
+  },
+  "fAnyTag": {
+    "message": "Au moins un"
+  },
+  "fNoTagsYet": {
+    "message": "Pas encore de tags : ils arrivent avec les résumés."
+  },
+  "fStatus": {
+    "message": "Statut"
+  },
+  "fSize": {
+    "message": "Taille"
+  },
+  "fSort": {
+    "message": "Trier"
+  },
+  "prevMonth": {
+    "message": "Mois précédent"
+  },
+  "nextMonth": {
+    "message": "Mois suivant"
+  },
+  "fNoStart": {
+    "message": "Sans date de début"
+  },
+  "fNoEnd": {
+    "message": "Sans date de fin"
+  },
+  "home": {
+    "message": "Accueil"
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher ou poser une question"
+  },
+  "clearSearch": {
+    "message": "Effacer la recherche"
+  },
+  "tabFil": {
+    "message": "Fil"
+  },
+  "tabSummaries": {
+    "message": "Résumés"
+  },
+  "tabTimeline": {
+    "message": "Frise"
+  },
+  "tabAnalysis": {
+    "message": "Analyse"
+  },
+  "tabAnalysisTitle": {
+    "message": "Analyse : chiffres, humeur, portrait"
+  },
+  "tabFavorites": {
+    "message": "Favoris"
+  },
+  "import": {
+    "message": "Importer"
+  },
+  "backup": {
+    "message": "Sauvegarder"
+  },
+  "settings": {
+    "message": "Réglages"
+  },
+  "dropHere": {
+    "message": "Dépose le fichier ici"
+  },
+  "fOr": {
+    "message": " ou "
+  },
+  "noConvImported": {
+    "message": "Aucune conversation importée"
+  },
+  "inProgress": {
+    "message": "En cours"
+  },
+  "staleDot": {
+    "message": "Résumé à refaire : une partie de la conversation n’est pas couverte"
+  },
+  "noConvFilters": {
+    "message": "Aucune conversation avec ces filtres."
+  },
+  "importTitle": {
+    "message": "Importe ta conversation"
+  },
+  "importHow": {
+    "message": "Dans Messenger : Préférences › Confidentialité et sécurité › Discussions chiffrées de bout en bout › Stockage des messages › Télécharger. Puis choisis le fichier .json de la conversation, ou glisse-le dans cette page."
+  },
+  "importLocal": {
+    "message": "Tout reste sur ce PC. Les exports suivants se rajoutent au même fil, sans doublons."
+  },
+  "chooseFile": {
+    "message": "Choisir le fichier"
+  },
+  "copyForLlmTitle": {
+    "message": "Copie la conversation avec une consigne de résumé, à coller dans un LLM"
+  },
+  "copyForLlm": {
+    "message": "Copier pour un LLM"
+  },
+  "copied": {
+    "message": "Copié"
+  },
+  "summarizing": {
+    "message": "Résumé en cours…"
+  },
+  "summarize": {
+    "message": "Résumer"
+  },
+  "redoAsOne": {
+    "message": "Refaire en un seul résumé"
+  },
+  "redoSummary": {
+    "message": "Refaire le résumé"
+  },
+  "aMoment": {
+    "message": "un instant"
+  },
+  "afterSilence": {
+    "message": "après $DURATION$ de silence",
+    "placeholders": {
+      "duration": {
+        "content": "$1"
+      }
+    }
+  },
+  "firstOfExport": {
+    "message": "premier message de l’export"
+  },
+  "prevConv": {
+    "message": "Conversation précédente (←)"
+  },
+  "nextConv": {
+    "message": "Conversation suivante (→)"
+  },
+  "mergePrev": {
+    "message": "Fusionner avec la conversation précédente"
+  },
+  "summary": {
+    "message": "Résumé"
+  },
+  "summaryNotYet": {
+    "message": "Résumé (pas encore fait)"
+  },
+  "messagesCount": {
+    "message": "Messages · $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "exportStart": {
+    "message": "Début de l’export. Pour voir avant le $DATE$, ajoute un export plus ancien depuis la Frise.",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "exportEnd": {
+    "message": "Fin de l’export ($DATE$).",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "veryShort": {
+    "message": "Conversation très courte : tu peux la lire directement, ou la résumer quand même."
+  },
+  "noSummaryYet": {
+    "message": "Cette conversation n’a pas encore de résumé."
+  },
+  "seeMessages": {
+    "message": "Voir les messages"
+  },
+  "writeMyself": {
+    "message": "L’écrire moi-même"
+  },
+  "titlePlaceholder": {
+    "message": "Titre"
+  },
+  "pointsWithLlm": {
+    "message": "Les points importants de cette conversation. « Résumer » les écrit ici ; tu peux les corriger."
+  },
+  "pointsNoLlm": {
+    "message": "Les points importants de cette conversation. Configure un LLM dans les Réglages pour les écrire tout seul, ou colle ici le résumé d’un LLM."
+  },
+  "saved": {
+    "message": "Enregistré"
+  },
+  "summarySaveFailed": {
+    "message": "Le résumé n’a pas pu être enregistré : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "staleInfo": {
+    "message": "Une partie de cette conversation n’est pas encore résumée (nouveaux messages, ou morceaux jamais résumés) : refais-le pour l’avoir en entier."
+  },
+  "partsInfo": {
+    "message": "Regroupement de $COUNT$ résumés faits avec un découpage plus fin$LEFT$. Rien n’a été renvoyé au LLM ; « Refaire en un seul résumé » en fait un nouveau, sans effacer ceux-ci.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "left": {
+        "content": "$2"
+      }
+    }
+  },
+  "aroundInfo": {
+    "message": "Résumé de la conversation plus longue qui contient celle-ci (fait avec un découpage plus large)."
+  },
+  "byOn": {
+    "message": "Par $WHO$, le $DATE$",
+    "placeholders": {
+      "who": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      }
+    }
+  },
+  "laterBy": {
+    "message": "$TIME$ · $DURATION$ plus tard",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      },
+      "duration": {
+        "content": "$2"
+      }
+    }
+  },
+  "messageRemoved": {
+    "message": "Message retiré"
+  },
+  "mediaMissing": {
+    "message": "Messenger n’a pas mis les photos et vidéos dans l’export"
+  },
+  "mediaMany": {
+    "message": "$COUNT$ photos ou vidéos",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "mediaOne": {
+    "message": "Photo ou vidéo"
+  },
+  "linkShared": {
+    "message": "Lien partagé (adresse absente de l’export)"
+  },
+  "unstar": {
+    "message": "Retirer des favoris"
+  },
+  "star": {
+    "message": "Ajouter aux favoris"
+  },
+  "cutHere": {
+    "message": "Couper ici : une nouvelle conversation commence à ce message"
+  },
+  "starFailed": {
+    "message": "Le favori n’a pas pu être enregistré : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "sRelevance": {
+    "message": "Pertinence"
+  },
+  "sNewest": {
+    "message": "Plus récentes"
+  },
+  "sOldest": {
+    "message": "Plus anciennes"
+  },
+  "foundBySummaries": {
+    "message": " (trouvées par leurs résumés)"
+  },
+  "inFiltered": {
+    "message": " · dans les conversations filtrées ($FILTER$)",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "quoted": {
+    "message": "« $TEXT$ »",
+    "placeholders": {
+      "text": {
+        "content": "$1"
+      }
+    }
+  },
+  "allPeople": {
+    "message": "Tous"
+  },
+  "me": {
+    "message": "$NAME$ (moi)",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "exactSpelling": {
+    "message": "Orthographe exacte"
+  },
+  "exactHint": {
+    "message": "Désactivé : khdma trouve aussi khedma, wesh trouve wech, 3lach trouve alach (au début des mots)"
+  },
+  "searchHint": {
+    "message": "Plusieurs mots : tous dans la même conversation, dans n’importe quel ordre · \"entre guillemets\" : la phrase exacte · -mot : sans les conversations qui le contiennent. Les titres, tags et résumés sont aussi cherchés."
+  },
+  "noMatchAll": {
+    "message": "Aucune conversation ne contient tout ça."
+  },
+  "typeWord": {
+    "message": "Tape un mot à chercher."
+  },
+  "showMore": {
+    "message": "Afficher $COUNT$ de plus ($LEFT$ restantes)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "left": {
+        "content": "$2"
+      }
+    }
+  },
+  "foundBySummary": {
+    "message": " · trouvée par son résumé"
+  },
+  "summaryColon": {
+    "message": "Résumé : "
+  },
+  "moreInConv": {
+    "message": "+ $MORE$ dans cette conversation",
+    "placeholders": {
+      "more": {
+        "content": "$1"
+      }
+    }
+  },
+  "tMessageRemoved": {
+    "message": "message retiré"
+  },
+  "tMedia": {
+    "message": "photo ou vidéo"
+  },
+  "tLink": {
+    "message": "lien"
+  },
+  "askNeedSummaries": {
+    "message": "Résume des conversations pour pouvoir poser des questions à Fil."
+  },
+  "askNeedLlm": {
+    "message": "Configure un LLM dans les Réglages pour poser des questions à Fil sur tes résumés."
+  },
+  "aboutTokens": {
+    "message": "Environ $COUNT$ tokens envoyés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "filSearching": {
+    "message": "Fil cherche…"
+  },
+  "askAgain": {
+    "message": "Redemander (nouvelle requête)"
+  },
+  "askFil": {
+    "message": "Demander à Fil"
+  },
+  "askExplain": {
+    "message": "Le LLM répond à « $Q$ » à partir de $COUNT$$FILTERED$, avec des liens vers les conversations.",
+    "placeholders": {
+      "q": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      },
+      "filtered": {
+        "content": "$3"
+      }
+    }
+  },
+  "filteredParen": {
+    "message": " (filtrés)"
+  },
+  "answerKept": {
+    "message": "Réponse gardée du $DATE$ : la revoir ne coûte rien.",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "qHelp": {
+    "message": "Tu aides $ME$, qui a des trous de mémoire, à retrouver ce qui s’est passé dans ses conversations avec $OTHERS$.",
+    "placeholders": {
+      "me": {
+        "content": "$1"
+      },
+      "others": {
+        "content": "$2"
+      }
+    }
+  },
+  "qOnly": {
+    "message": "Tu as seulement les résumés ci-dessous, numérotés entre crochets, du plus ancien au plus récent."
+  },
+  "qAnswer": {
+    "message": "Réponds en français, court et précis, en citant chaque conversation utilisée par son numéro entre crochets, par exemple [12].",
+    "placeholders": {
+      "language": {
+        "content": "$1"
+      }
+    }
+  },
+  "qNotFound": {
+    "message": "Si la réponse n’est pas dans les résumés, dis-le simplement et propose les conversations les plus proches. N’invente rien."
+  },
+  "qUser": {
+    "message": "Résumés :\n\n$LIST$\n\nQuestion : $QUESTION$",
+    "placeholders": {
+      "list": {
+        "content": "$1"
+      },
+      "question": {
+        "content": "$2"
+      }
+    }
+  },
+  "askFailed": {
+    "message": "Fil n’a pas pu répondre.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "favorites": {
+    "message": "Favoris"
+  },
+  "noFavorites": {
+    "message": "Aucun favori. Passe la souris sur un message et clique sur l’étoile pour le garder ici."
+  },
+  "aboutTokensTotal": {
+    "message": "Environ $COUNT$ tokens envoyés au total",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "summarizeTheseLeft": {
+    "message": "Résumer ces $COUNT$ restantes",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "summarizeTheLeft": {
+    "message": "Résumer les $COUNT$ restantes",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "tagN": {
+    "message": "Taguer $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "copyAll": {
+    "message": "Tout copier"
+  },
+  "summarizedOf": {
+    "message": "$SUMMARIZED$ sur $TOTAL$",
+    "placeholders": {
+      "summarized": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "filteredWith": {
+    "message": " filtrées ($FILTER$)",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "savedNeverAsked": {
+    "message": " · enregistrés sur ce PC, jamais redemandés au LLM"
+  },
+  "summaries": {
+    "message": "Résumés"
+  },
+  "toSummarizeAll": {
+    "message": "Pour tout résumer d’un coup, "
+  },
+  "setUpLlm": {
+    "message": "configure un LLM dans les Réglages"
+  },
+  "noSummaryFiltered": {
+    "message": "Aucun résumé parmi les conversations filtrées."
+  },
+  "noSummaryYetAll": {
+    "message": "Aucun résumé pour l’instant."
+  },
+  "toRedoTail": {
+    "message": " · à refaire"
+  },
+  "groupedTail": {
+    "message": " · $COUNT$ résumés regroupés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "span6m": {
+    "message": "6 mois"
+  },
+  "span1y": {
+    "message": "1 an"
+  },
+  "span2y": {
+    "message": "2 ans"
+  },
+  "spanAll": {
+    "message": "Ce que j’ai"
+  },
+  "friseHintZoom": {
+    "message": "Molette : zoomer · Maj + molette : se déplacer · glisse pour choisir une période · clique sur une barre pour l’ouvrir."
+  },
+  "friseHint": {
+    "message": "Survole une barre pour voir la conversation, clique pour l’ouvrir. Molette pour zoomer. Glisse pour choisir une période."
+  },
+  "zoomChip": {
+    "message": "Zoom : $FROM$ → $TO$ ✕",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "backFullView": {
+    "message": "Revenir à la vue complète"
+  },
+  "kSummarized": {
+    "message": "résumée"
+  },
+  "kGrouped": {
+    "message": "regroupée"
+  },
+  "kNotSummarized": {
+    "message": "pas résumée"
+  },
+  "kToRedo": {
+    "message": "à refaire"
+  },
+  "kNotImported": {
+    "message": "pas importé"
+  },
+  "addExport": {
+    "message": "Ajouter un export"
+  },
+  "timeline": {
+    "message": "Frise"
+  },
+  "friseSub": {
+    "message": "Tu as $SPAN$ · $DAYS$ · $DONE$ / $TOTAL$ conversations résumées",
+    "placeholders": {
+      "span": {
+        "content": "$1"
+      },
+      "days": {
+        "content": "$2"
+      },
+      "done": {
+        "content": "$3"
+      },
+      "total": {
+        "content": "$4"
+      }
+    }
+  },
+  "hourMark": {
+    "message": "$H$ h",
+    "placeholders": {
+      "h": {
+        "content": "$1"
+      }
+    }
+  },
+  "notSummarizedYet": {
+    "message": " · pas encore résumée"
+  },
+  "summarizeTheseConvs": {
+    "message": "Résumer ces $COUNT$ conversations",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "summarizeThisConv": {
+    "message": "Résumer cette conversation"
+  },
+  "setUpLlmToSummarize": {
+    "message": "Configurer un LLM pour résumer"
+  },
+  "filterPeriod": {
+    "message": "Filtrer sur cette période"
+  },
+  "filterPeriodTitle": {
+    "message": "La liste à gauche, les résumés et la recherche ne montrent plus que cette période"
+  },
+  "zoomPeriod": {
+    "message": "Zoomer sur cette période"
+  },
+  "openFirst": {
+    "message": "Ouvrir la première"
+  },
+  "clearSelection": {
+    "message": "Effacer la sélection"
+  },
+  "selDetails": {
+    "message": "$CONVS$ : $DONE$ déjà résumée(s) (enregistrées, rien n’est renvoyé au LLM), $TODO$ à résumer$OTHER$.",
+    "placeholders": {
+      "convs": {
+        "content": "$1"
+      },
+      "done": {
+        "content": "$2"
+      },
+      "todo": {
+        "content": "$3"
+      },
+      "other": {
+        "content": "$4"
+      }
+    }
+  },
+  "noConvPeriod": {
+    "message": "Aucune conversation importée sur cette période."
+  },
+  "veryShortWord": {
+    "message": "très courte"
+  },
+  "notSummarizedWord": {
+    "message": "pas encore résumée"
+  },
+  "fromToFull": {
+    "message": "Du $FROM$ au $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "wBefore": {
+    "message": "$COUNT$ avant ce que tu as",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "wAfter": {
+    "message": "$COUNT$ après",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "wGap": {
+    "message": "$COUNT$ dans un trou",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "fileSpans": {
+    "message": "Ce fichier va du $FROM$ au $TO$ ($COUNT$).",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      },
+      "count": {
+        "content": "$3"
+      }
+    }
+  },
+  "toAdd": {
+    "message": "À ajouter : $COUNT$$WHERE$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "where": {
+        "content": "$2"
+      }
+    }
+  },
+  "nothingNew": {
+    "message": "Rien de nouveau : tout ce fichier couvre une période que tu as déjà."
+  },
+  "alreadyThere": {
+    "message": "Déjà présents : $COUNT$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ignoredDiff": {
+    "message": "Ignorés : $COUNT$ dans une période que tu as déjà, mais différents de ce que tu as (retirés ou modifiés depuis). Ce que tu as est gardé tel quel.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "newExport": {
+    "message": "Nouvel export : $FILE$",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      }
+    }
+  },
+  "addN": {
+    "message": "Ajouter $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "importedExports": {
+    "message": "Exports importés"
+  },
+  "exportWord": {
+    "message": "Export"
+  },
+  "importLine": {
+    "message": "du $FROM$ au $TO$ · $ADDED$$IGNORED$ · importé le $AT$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      },
+      "added": {
+        "content": "$3"
+      },
+      "ignored": {
+        "content": "$4"
+      },
+      "at": {
+        "content": "$5"
+      }
+    }
+  },
+  "ignoredTail": {
+    "message": ", $COUNT$ ignorés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "saveTest": {
+    "message": "Enregistrer et tester"
+  },
+  "forgetLlm": {
+    "message": "Oublier ce LLM"
+  },
+  "llmForgotten": {
+    "message": "Le LLM et sa clé ont été effacés de Fil."
+  },
+  "gapCount": {
+    "message": "Avec $GAP$ : $CONVS$.",
+    "placeholders": {
+      "gap": {
+        "content": "$1"
+      },
+      "convs": {
+        "content": "$2"
+      }
+    }
+  },
+  "cutting": {
+    "message": "Découpage"
+  },
+  "gapLabel": {
+    "message": "Une nouvelle conversation commence après un silence de"
+  },
+  "gapHint": {
+    "message": "Aucun résumé n’est perdu en changeant : chacun reste gardé pour son découpage. Une conversation qui en regroupe plusieurs déjà résumées affiche leurs résumés bout à bout, sans rien renvoyer au LLM."
+  },
+  "llmForSummaries": {
+    "message": "LLM pour les résumés"
+  },
+  "apiUrl": {
+    "message": "Adresse de l’API"
+  },
+  "apiUrlHint": {
+    "message": "Un service compatible OpenAI : l’adresse qui finit par /v1, ou l’adresse complète en /chat/completions (LiteLLM, OpenAI, OpenRouter, Ollama…)."
+  },
+  "model": {
+    "message": "Modèle"
+  },
+  "apiKey": {
+    "message": "Clé"
+  },
+  "apiKeyHint": {
+    "message": "Elle reste dans Fil, sur ce PC. Elle n’est pas dans les sauvegardes."
+  },
+  "llmPrivacy": {
+    "message": "Quand tu demandes un résumé, les messages de cette conversation (et les résumés des 3 précédentes, pour le contexte) sont envoyés à ce service. Rien d’autre ne sort de ce PC."
+  },
+  "needUrlModel": {
+    "message": "Il faut au moins l’adresse et le modèle."
+  },
+  "llmNeedConsent": {
+    "message": "Sans ton accord, Fil ne peut pas contacter ce service. Clique à nouveau et choisis « Autoriser »."
+  },
+  "savedTesting": {
+    "message": "Enregistré. Test en cours…"
+  },
+  "testPrompt": {
+    "message": "Réponds seulement : OK"
+  },
+  "testOk": {
+    "message": "Ça marche. Réponse de $MODEL$ : « $ANSWER$ »",
+    "placeholders": {
+      "model": {
+        "content": "$1"
+      },
+      "answer": {
+        "content": "$2"
+      }
+    }
+  },
+  "testFailed": {
+    "message": "Enregistré, mais le test a échoué.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "waitSummaries": {
+    "message": "Attends la fin des résumés en cours (ou arrête-les) avant de changer le découpage."
+  },
+  "trRemoved": {
+    "message": "(message retiré)"
+  },
+  "trMedias": {
+    "message": "[$COUNT$ photos/vidéos]",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "trMedia": {
+    "message": "[photo/vidéo]"
+  },
+  "trLink": {
+    "message": "[lien]"
+  },
+  "trLine": {
+    "message": "[$TIME$] $NAME$ : $TEXT$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      },
+      "name": {
+        "content": "$2"
+      },
+      "text": {
+        "content": "$3"
+      }
+    }
+  },
+  "trTags": {
+    "message": "Tags : $TAGS$",
+    "placeholders": {
+      "tags": {
+        "content": "$1"
+      }
+    }
+  },
+  "copyFailed": {
+    "message": "La copie a échoué : $ERROR$. Clique dans la page puis réessaie.",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMsg": {
+    "message": "Erreur : $MESSAGE$",
+    "placeholders": {
+      "message": {
+        "content": "$1"
+      }
+    }
+  },
+  "cantOpenData": {
+    "message": "Fil n’arrive pas à ouvrir ses données : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "waitWork": {
+    "message": "Attends la fin du travail en cours (ou arrête-le) avant de changer le découpage."
+  },
+  "cPrompt1": {
+    "message": "On te montre la fin d’un échange et le début du suivant, séparés par un silence."
+  },
+  "cPrompt2": {
+    "message": "Dis si c’est la MÊME conversation qui continue (on répond à ce qui précède, même sujet, on reprend là où on en était) ou une NOUVELLE conversation (nouveau sujet, salutations, autre moment de la journée)."
+  },
+  "cPrompt3": {
+    "message": "Réponds par un seul mot : MEME ou NOUVELLE."
+  },
+  "cUser": {
+    "message": "Avant :\n$BEFORE$\n\n--- silence de $DURATION$ ---\n\nAprès :\n$AFTER$",
+    "placeholders": {
+      "before": {
+        "content": "$1"
+      },
+      "duration": {
+        "content": "$2"
+      },
+      "after": {
+        "content": "$3"
+      }
+    }
+  },
+  "cBadAnswer": {
+    "message": "Réponse incomprise : « $ANSWER$ »",
+    "placeholders": {
+      "answer": {
+        "content": "$1"
+      }
+    }
+  },
+  "noDoubtful": {
+    "message": "Aucune coupure douteuse à vérifier."
+  },
+  "batchCuts": {
+    "message": "Coupures"
+  },
+  "nCutChecked_one": {
+    "message": "$COUNT$ coupure vérifiée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nCutChecked_other": {
+    "message": "$COUNT$ coupures vérifiées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "doubtfulTitle": {
+    "message": "Coupures douteuses"
+  },
+  "doubtfulInfo": {
+    "message": " · $SILENCES$ entre $LOW$ et $HIGH$ pas encore vérifiés. Le LLM lit les messages autour et dit si la conversation continue ou s’il en commence une nouvelle.",
+    "placeholders": {
+      "silences": {
+        "content": "$1"
+      },
+      "low": {
+        "content": "$2"
+      },
+      "high": {
+        "content": "$3"
+      }
+    }
+  },
+  "aboutTokensSent": {
+    "message": "Environ $COUNT$ tokens envoyés",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "checkN": {
+    "message": "Vérifier les $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "llmDecisions": {
+    "message": "Décisions du LLM"
+  },
+  "llmDecisionsInfo": {
+    "message": " · $SAME$, $NEW$ (pour l’écart actuel).",
+    "placeholders": {
+      "same": {
+        "content": "$1"
+      },
+      "new": {
+        "content": "$2"
+      }
+    }
+  },
+  "forget": {
+    "message": "Oublier"
+  },
+  "yourFixes": {
+    "message": "Tes corrections"
+  },
+  "yourFixesInfo": {
+    "message": " · $MERGES$, $CUTS$. Elles passent avant tout le reste, quel que soit l’écart.",
+    "placeholders": {
+      "merges": {
+        "content": "$1"
+      },
+      "cuts": {
+        "content": "$2"
+      }
+    }
+  },
+  "yourFixesNone": {
+    "message": " · aucune. Dans une conversation : « Fusionner avec la précédente » en haut, ou les ciseaux au survol d’un message pour couper avant lui."
+  },
+  "undoAll": {
+    "message": "Tout annuler"
+  },
+  "joinedByYou": {
+    "message": "par toi"
+  },
+  "joinedByLlm": {
+    "message": "par le LLM"
+  },
+  "joinedSep": {
+    "message": "$TIME$ · $DURATION$ plus tard · recollée $WHO$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      },
+      "duration": {
+        "content": "$2"
+      },
+      "who": {
+        "content": "$3"
+      }
+    }
+  },
+  "cutHereShort": {
+    "message": "Couper ici"
+  },
+  "youCutHere": {
+    "message": "Tu as coupé ici."
+  },
+  "llmCutHere": {
+    "message": "Le LLM a coupé ici."
+  },
+  "rejoinPrev": {
+    "message": "Recoller à la précédente"
+  },
+  "fxPromises": {
+    "message": "Promesses"
+  },
+  "fxPromisesWhat": {
+    "message": "quelqu’un s’engage à faire quelque chose"
+  },
+  "fxPromise": {
+    "message": "Promesse"
+  },
+  "fwPromise": {
+    "message": "promesse"
+  },
+  "fxPlans": {
+    "message": "Projets"
+  },
+  "fxPlansWhat": {
+    "message": "quelque chose de prévu ensemble"
+  },
+  "fxPlan": {
+    "message": "Projet"
+  },
+  "fwPlan": {
+    "message": "projet"
+  },
+  "fxDates": {
+    "message": "Dates"
+  },
+  "fxDatesWhat": {
+    "message": "un événement daté : anniversaire, rendez-vous, examen"
+  },
+  "fxDate": {
+    "message": "Date"
+  },
+  "fwDate": {
+    "message": "date"
+  },
+  "fxPending": {
+    "message": "En suspens"
+  },
+  "fxPendingWhat": {
+    "message": "une question ou un sujet resté sans réponse"
+  },
+  "fxPendingOne": {
+    "message": "En suspens"
+  },
+  "fwPending": {
+    "message": "suspens"
+  },
+  "fxFacts": {
+    "message": "Faits"
+  },
+  "fxFactsWhat": {
+    "message": "une information importante sur la vie de l’un ou l’autre"
+  },
+  "fxFact": {
+    "message": "Fait"
+  },
+  "fwFact": {
+    "message": "fait"
+  },
+  "enPeople": {
+    "message": "Personnes"
+  },
+  "ewPerson": {
+    "message": "personne"
+  },
+  "enPlaces": {
+    "message": "Lieux"
+  },
+  "ewPlace": {
+    "message": "lieu"
+  },
+  "enOthers": {
+    "message": "Autres"
+  },
+  "ewOther": {
+    "message": "autre"
+  },
+  "conversations": {
+    "message": "Conversations"
+  },
+  "weeks": {
+    "message": "Semaines"
+  },
+  "months": {
+    "message": "Mois"
+  },
+  "toRemember": {
+    "message": "À retenir"
+  },
+  "questions": {
+    "message": "Questions"
+  },
+  "weekOf": {
+    "message": "Semaine du $FROM$ au $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "chWhatMonth": {
+    "message": "du mois"
+  },
+  "chWhatWeek": {
+    "message": "de la semaine"
+  },
+  "chPrompt1": {
+    "message": "Tu écris le chapitre $WHAT$ à partir des résumés de ses conversations : ce qu’il faudrait relire pour se souvenir de cette période.",
+    "placeholders": {
+      "what": {
+        "content": "$1"
+      }
+    }
+  },
+  "chTitle": {
+    "message": "TITRE: <de 4 à 8 mots>"
+  },
+  "chMood": {
+    "message": "AMBIANCE: <une phrase sur le ton général de la période et son évolution>"
+  },
+  "chPoint": {
+    "message": "- <point important>"
+  },
+  "chPoints": {
+    "message": "De 3 à $MAX$ points, les plus importants, dans l’ordre chronologique, avec le jour entre parenthèses quand il compte. Ce qui a changé, ce qui a été décidé, ce qui s’est passé de marquant. Pas d’introduction.",
+    "placeholders": {
+      "max": {
+        "content": "$1"
+      }
+    }
+  },
+  "chUser": {
+    "message": "Période : $LABEL$ ($COUNT$)\n\n$LIST$",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      },
+      "list": {
+        "content": "$3"
+      }
+    }
+  },
+  "batchChapters": {
+    "message": "Chapitres"
+  },
+  "nChapterWritten_one": {
+    "message": "$COUNT$ chapitre écrit",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nChapterWritten_other": {
+    "message": "$COUNT$ chapitres écrits",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "writeN": {
+    "message": "Écrire $WHAT$",
+    "placeholders": {
+      "what": {
+        "content": "$1"
+      }
+    }
+  },
+  "chHaveMonth_one": {
+    "message": "$COUNT$ mois sur $TOTAL$ ont leur chapitre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "chHaveMonth_other": {
+    "message": "$COUNT$ mois sur $TOTAL$ ont leur chapitre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "chHaveWeek_one": {
+    "message": "$COUNT$ semaine sur $TOTAL$ ont leur chapitre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "chHaveWeek_other": {
+    "message": "$COUNT$ semaines sur $TOTAL$ ont leur chapitre",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "chStale": {
+    "message": " · $COUNT$ à refaire",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "chFromSummaries": {
+    "message": " · écrits à partir des résumés, rien d’autre n’est envoyé"
+  },
+  "noConvHere": {
+    "message": "Aucune conversation sur cette période."
+  },
+  "redo": {
+    "message": "Refaire"
+  },
+  "writeChapter": {
+    "message": "Écrire ce chapitre"
+  },
+  "seePeriodConvs": {
+    "message": "Voir les conversations de cette période"
+  },
+  "nOfWhichNotSummarized_one": {
+    "message": " dont $COUNT$ pas encore résumée",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nOfWhichNotSummarized_other": {
+    "message": " dont $COUNT$ pas encore résumées",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "chSummariesChanged": {
+    "message": " · les résumés ont changé : à refaire"
+  },
+  "summarizeFirst": {
+    "message": "Résume d’abord les conversations de cette période."
+  },
+  "notWrittenYet": {
+    "message": "Pas encore écrit."
+  },
+  "chEmptyTail": {
+    "message": " sans aucune conversation résumée : résume-les d’abord (onglet Conversations ou Frise)."
+  },
+  "chapterFailed": {
+    "message": "Le chapitre n’a pas pu être écrit.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "mPrompt1": {
+    "message": "À partir des résumés numérotés, relève ce qu’il faut retenir. Une ligne par élément, exactement ainsi :"
+  },
+  "mFactLine": {
+    "message": "FAIT | [n] | type | quand | texte"
+  },
+  "mTypes": {
+    "message": "types : $LIST$.",
+    "placeholders": {
+      "list": {
+        "content": "$1"
+      }
+    }
+  },
+  "mWhen": {
+    "message": "quand : la date ou le moment concerné s’il est connu (par exemple « samedi 8 août », « fin septembre »), sinon -"
+  },
+  "mText": {
+    "message": "texte : une phrase courte et précise, qui dit qui fait quoi."
+  },
+  "mThen": {
+    "message": "Puis les personnes et les lieux cités, une ligne par nom :"
+  },
+  "mEntityLine": {
+    "message": "ENTITE | personne ou lieu ou autre | nom | qui ou quoi en quelques mots | [n], [m]"
+  },
+  "mNotAdd": {
+    "message": "N’ajoute pas $ME$ ni $OTHERS$.",
+    "placeholders": {
+      "me": {
+        "content": "$1"
+      },
+      "others": {
+        "content": "$2"
+      }
+    }
+  },
+  "mNor": {
+    "message": " ni "
+  },
+  "mKnown": {
+    "message": " Écris les noms déjà connus comme ceci : $NAMES$.",
+    "placeholders": {
+      "names": {
+        "content": "$1"
+      }
+    }
+  },
+  "mNothing": {
+    "message": "N’invente rien. S’il n’y a rien à retenir, réponds RIEN."
+  },
+  "mUser": {
+    "message": "Mois : $LABEL$\n\n$LIST$",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      },
+      "list": {
+        "content": "$2"
+      }
+    }
+  },
+  "batchMemory": {
+    "message": "Mémoire"
+  },
+  "nMonthRead_one": {
+    "message": "$COUNT$ mois lu",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMonthRead_other": {
+    "message": "$COUNT$ mois lus",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "readN": {
+    "message": "Lire $WHAT$",
+    "placeholders": {
+      "what": {
+        "content": "$1"
+      }
+    }
+  },
+  "mNote": {
+    "message": "$READ$ mois lus sur $TOTAL$",
+    "placeholders": {
+      "read": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "mStale": {
+    "message": " · $COUNT$ à relire (résumés changés)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "mFrom": {
+    "message": " · tiré des résumés, une requête par mois"
+  },
+  "showSettled": {
+    "message": "Voir ce qui est réglé"
+  },
+  "nothingToRemember": {
+    "message": "Rien à retenir sur cette période."
+  },
+  "clickRead": {
+    "message": "Clique sur « Lire » pour que le LLM relève les promesses, projets, dates et sujets en suspens de tes résumés."
+  },
+  "markUndone": {
+    "message": "Remettre à faire"
+  },
+  "markSettled": {
+    "message": "Marquer comme réglé"
+  },
+  "openConvTitle": {
+    "message": "Ouvrir la conversation"
+  },
+  "allSettled": {
+    "message": "Tout est réglé ici."
+  },
+  "peoplePlaces": {
+    "message": "Personnes et lieux"
+  },
+  "clickReadIndex": {
+    "message": "Clique sur « Lire » : le LLM relève dans tes résumés les personnes et les lieux dont vous parlez, avec qui ils sont."
+  },
+  "searchName": {
+    "message": "Chercher ce nom"
+  },
+  "asksKept": {
+    "message": " · les réponses sont gardées : reposer la même question ne coûte rien"
+  },
+  "asksEmpty": {
+    "message": "Tape une question dans la recherche (par exemple « quand est-ce qu’on a parlé de déménager ? »), puis « Demander à Fil »."
+  },
+  "seeSearchAgain": {
+    "message": "Revoir cette recherche"
+  },
+  "askedOn": {
+    "message": " · le $DATE$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "forgetQuestion": {
+    "message": "Oublier cette question"
+  },
+  "exportBtn": {
+    "message": "Exporter"
+  },
+  "moodCell": {
+    "message": "$TAG$ : $CONVS$ sur $TOTAL$",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      },
+      "convs": {
+        "content": "$2"
+      },
+      "total": {
+        "content": "$3"
+      }
+    }
+  },
+  "exFromTo": {
+    "message": "du $FROM$ au $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "exFromToCap": {
+    "message": "Du $FROM$ au $TO$",
+    "placeholders": {
+      "from": {
+        "content": "$1"
+      },
+      "to": {
+        "content": "$2"
+      }
+    }
+  },
+  "exStart": {
+    "message": "début"
+  },
+  "exToday": {
+    "message": "aujourd’hui"
+  },
+  "exWhole": {
+    "message": "toute la conversation"
+  },
+  "exTitle": {
+    "message": "Exporter en document"
+  },
+  "exFilterOn": {
+    "message": " (filtre actif)"
+  },
+  "exOpenPdf": {
+    "message": "Ouvrir l’aperçu PDF"
+  },
+  "exDownloadWord": {
+    "message": "Télécharger le fichier Word"
+  },
+  "exPdfHint": {
+    "message": "Chrome ouvre son aperçu d’impression : choisis « Enregistrer au format PDF » comme imprimante."
+  },
+  "exAll": {
+    "message": "Tout : $SPAN$",
+    "placeholders": {
+      "span": {
+        "content": "$1"
+      }
+    }
+  },
+  "exExportedOn": {
+    "message": " · exporté le $DATE$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "exSettled": {
+    "message": "[réglé] "
+  },
+  "exAbout": {
+    "message": "$NAME$ : $ABOUT$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "about": {
+        "content": "$2"
+      }
+    }
+  },
+  "exNothing": {
+    "message": "Rien à exporter : écris d’abord des chapitres ou des résumés pour cette période."
+  },
+  "exSaved": {
+    "message": "Fichier Word enregistré dans Téléchargements : $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "lgDarja": {
+    "message": "Darja"
+  },
+  "lgFrench": {
+    "message": "Français"
+  },
+  "lgEnglish": {
+    "message": "Anglais"
+  },
+  "lgMixed": {
+    "message": "Mélangé"
+  },
+  "lgShort": {
+    "message": "Court (1-2 mots, emoji)"
+  },
+  "lgOther": {
+    "message": "Pas reconnu"
+  },
+  "kv": {
+    "message": "$LABEL$ : $VALUE$",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      },
+      "value": {
+        "content": "$2"
+      }
+    }
+  },
+  "stOfMessages": {
+    "message": "des messages ($COUNT$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "stWordsPerMsg": {
+    "message": "mots par message"
+  },
+  "stUnderMin": {
+    "message": "< 1 min"
+  },
+  "stToReply": {
+    "message": "pour répondre (médiane)"
+  },
+  "stToReplyTip": {
+    "message": "La moitié des réponses arrivent plus vite que ça (réponses de moins de 6 h)."
+  },
+  "stStarted": {
+    "message": "des conversations lancées"
+  },
+  "stRelaunch": {
+    "message": "relances après 24 h de silence"
+  },
+  "stQuestions": {
+    "message": "questions posées"
+  },
+  "stNight": {
+    "message": "de messages entre 0 h et 5 h"
+  },
+  "stMedia": {
+    "message": "photos ou vidéos"
+  },
+  "stReacts": {
+    "message": "réactions données"
+  },
+  "stUnsent": {
+    "message": "messages retirés"
+  },
+  "stEmojis": {
+    "message": "Emojis favoris : "
+  },
+  "stShare": {
+    "message": "Part des messages de chacun"
+  },
+  "stLangHint": {
+    "message": "Langue de chaque message, devinée à partir des mots courants de chaque langue (approximatif)."
+  },
+  "stHeatHint": {
+    "message": "Messages par jour et par heure : plus c’est foncé, plus vous écrivez."
+  },
+  "stWeeksHint": {
+    "message": "Messages par semaine (survole une barre)"
+  },
+  "stNoMood": {
+    "message": "Pas encore de tags d’ambiance : ils arrivent avec les résumés (ou « Taguer » dans Résumés)."
+  },
+  "stMoodCell": {
+    "message": "$LABEL$ · $TAG$ : $COUNT$ conversations sur $TOTAL$",
+    "placeholders": {
+      "label": {
+        "content": "$1"
+      },
+      "tag": {
+        "content": "$2"
+      },
+      "count": {
+        "content": "$3"
+      },
+      "total": {
+        "content": "$4"
+      }
+    }
+  },
+  "stMoreNight": {
+    "message": "plus souvent la nuit ($SHARE$ commencent entre 23 h et 5 h, contre $BASE$ en général)",
+    "placeholders": {
+      "share": {
+        "content": "$1"
+      },
+      "base": {
+        "content": "$2"
+      }
+    }
+  },
+  "stLessNight": {
+    "message": "moins souvent la nuit ($SHARE$ commencent entre 23 h et 5 h, contre $BASE$ en général)",
+    "placeholders": {
+      "share": {
+        "content": "$1"
+      },
+      "base": {
+        "content": "$2"
+      }
+    }
+  },
+  "stLonger": {
+    "message": "plus longues que la moyenne ($COUNT$ messages contre $BASE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "base": {
+        "content": "$2"
+      }
+    }
+  },
+  "stShorter": {
+    "message": "plus courtes que la moyenne ($COUNT$ messages contre $BASE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "base": {
+        "content": "$2"
+      }
+    }
+  },
+  "stLedBy": {
+    "message": "lancées le plus souvent par $NAME$ ($SHARE$)",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "share": {
+        "content": "$2"
+      }
+    }
+  },
+  "stMoodHint": {
+    "message": "Part de chaque ambiance parmi les conversations résumées, mois par mois"
+  },
+  "stUnknown": {
+    "message": "inconnue"
+  },
+  "stLine": {
+    "message": "$NAME$ : $MESSAGES$ messages, $WORDS$ mots par message, réponse médiane $REPLY$, lance $STARTS$ conversations sur $TOTAL$, $QUESTIONS$ questions, $NIGHT$ messages entre 0 h et 5 h, langues : $LANGS$.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "messages": {
+        "content": "$2"
+      },
+      "words": {
+        "content": "$3"
+      },
+      "reply": {
+        "content": "$4"
+      },
+      "starts": {
+        "content": "$5"
+      },
+      "total": {
+        "content": "$6"
+      },
+      "questions": {
+        "content": "$7"
+      },
+      "night": {
+        "content": "$8"
+      },
+      "langs": {
+        "content": "$9"
+      }
+    }
+  },
+  "stNeedSummaries": {
+    "message": "Résume d’abord des conversations : le portrait s’appuie sur les résumés."
+  },
+  "prSamples": {
+    "message": "Quelques messages de $NAME$ (pour la façon d’écrire) :",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "prSameFour": {
+    "message": "(sous chaque nom, les mêmes quatre sous-titres)"
+  },
+  "prGroup": {
+    "message": "## Le groupe"
+  },
+  "prGroupHow": {
+    "message": "### Comment le groupe échange"
+  },
+  "prWhoReacts": {
+    "message": "### Qui réagit à qui"
+  },
+  "prTensions": {
+    "message": "### Ce qui revient dans les tensions"
+  },
+  "prGroupWorks": {
+    "message": "### Ce qui marche bien dans le groupe"
+  },
+  "prFour": {
+    "message": "(les quatre sous-titres)"
+  },
+  "prSameFourOne": {
+    "message": "(les mêmes quatre sous-titres)"
+  },
+  "prRelation": {
+    "message": "## La relation"
+  },
+  "prHowYou": {
+    "message": "### Comment vous échangez"
+  },
+  "prWorksYou": {
+    "message": "### Ce qui marche bien entre vous"
+  },
+  "prIntroGroup": {
+    "message": "Tu fais un portrait DESCRIPTIF des membres les plus actifs du groupe « $GROUP$ » tels qu’ils apparaissent dans ces conversations, et de la dynamique du groupe.",
+    "placeholders": {
+      "group": {
+        "content": "$1"
+      }
+    }
+  },
+  "prIntroPair": {
+    "message": "Tu fais un portrait DESCRIPTIF de $ME$ et de $OTHER$ tels qu’ils apparaissent dans ces conversations, et de leur relation.",
+    "placeholders": {
+      "me": {
+        "content": "$1"
+      },
+      "other": {
+        "content": "$2"
+      }
+    }
+  },
+  "prRules": {
+    "message": "Règles : seulement ce qu’on observe dans les données fournies. Pas de diagnostic, pas d’étiquette psychologique ou médicale (anxieux, narcissique, toxique, dépressif, manipulateur, TDAH…), pas de jugement moral, pas de supposition sur ce qui n’y est pas. Décris des habitudes et des façons de faire, pas la valeur des personnes. Appuie chaque point sur des exemples en citant les conversations par leur numéro entre crochets, par exemple [12]."
+  },
+  "prHeadings": {
+    "message": "Réponds en français, exactement avec ces titres. Les quatre sous-titres de chaque personne sont : ### Façon d’écrire, ### Sujets qui reviennent, ### Ce qui le ou la fait réagir, ### Ce qu’il ou elle apporte à l’échange.",
+    "placeholders": {
+      "language": {
+        "content": "$1"
+      }
+    }
+  },
+  "prPoints": {
+    "message": "Sous chaque sous-titre, 2 à 4 points courts commençant par « - »."
+  },
+  "prUser": {
+    "message": "Chiffres :\n$STATS$\n\n$SAMPLES$\n\nRésumés des conversations :\n\n$LIST$",
+    "placeholders": {
+      "stats": {
+        "content": "$1"
+      },
+      "samples": {
+        "content": "$2"
+      },
+      "list": {
+        "content": "$3"
+      }
+    }
+  },
+  "prFailed": {
+    "message": "Le portrait n’a pas pu être écrit.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "prWriting": {
+    "message": "Écriture…"
+  },
+  "prRedo": {
+    "message": "Refaire le portrait"
+  },
+  "prWrite": {
+    "message": "Écrire le portrait"
+  },
+  "prTitle": {
+    "message": "Portrait des deux, et de la relation"
+  },
+  "prDesc": {
+    "message": "Descriptif : des habitudes observées dans $SUMMARIES$$FILTERED$, les chiffres ci-dessus et $COUNT$ messages de chacun. Pas un jugement, pas un diagnostic.",
+    "placeholders": {
+      "summaries": {
+        "content": "$1"
+      },
+      "filtered": {
+        "content": "$2"
+      },
+      "count": {
+        "content": "$3"
+      }
+    }
+  },
+  "prFilteredParen": {
+    "message": " (filtrés)"
+  },
+  "prWrittenOn": {
+    "message": "Écrit le $DATE$ par $MODEL$, sur $CONVS$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      },
+      "model": {
+        "content": "$2"
+      },
+      "convs": {
+        "content": "$3"
+      }
+    }
+  },
+  "prStale": {
+    "message": " · la période ou les résumés ont changé depuis : refais-le pour le mettre à jour"
+  },
+  "prNeedLlm": {
+    "message": "Configure un LLM dans les Réglages pour écrire le portrait."
+  },
+  "anScope": {
+    "message": "$CONVS$, du $FROM$ au $TO$",
+    "placeholders": {
+      "convs": {
+        "content": "$1"
+      },
+      "from": {
+        "content": "$2"
+      },
+      "to": {
+        "content": "$3"
+      }
+    }
+  },
+  "anFiltered": {
+    "message": " · filtré ($WHAT$)",
+    "placeholders": {
+      "what": {
+        "content": "$1"
+      }
+    }
+  },
+  "anNoConv": {
+    "message": "Aucune conversation avec ces filtres."
+  },
+  "anTitle": {
+    "message": "Analyse"
+  },
+  "anLocal": {
+    "message": " · calculé sur ce PC, sauf le portrait"
+  },
+  "anFigures": {
+    "message": "En chiffres"
+  },
+  "anLanguages": {
+    "message": "Langues"
+  },
+  "anWhen": {
+    "message": "Quand vous écrivez"
+  },
+  "anMood": {
+    "message": "Humeur"
+  },
+  "anPortrait": {
+    "message": "Portrait"
+  },
+  "plMsg1": {
+    "message": "Discussions chiffrées : Messenger › Préférences › Confidentialité et sécurité › Discussions chiffrées de bout en bout › Stockage des messages › Télécharger. Choisis « Toute la période »."
+  },
+  "plMsg2": {
+    "message": "Les autres discussions : Facebook › Paramètres › Espace Comptes › Vos informations et autorisations › Exporter vos informations, format JSON, rubrique Messages."
+  },
+  "plMsg3": {
+    "message": "Importe un fichier .json, ou tout le dossier « messages » d’un coup."
+  },
+  "plMsgNote": {
+    "message": "Les photos et vidéos ne sont pas dans les exports chiffrés."
+  },
+  "plWa1": {
+    "message": "Ouvre la discussion › ⋮ (ou le nom en haut sur iPhone) › Plus › Exporter la discussion › Sans médias."
+  },
+  "plWa2": {
+    "message": "Envoie-toi le fichier (e-mail, Drive…) et importe le .txt, ou le .zip tel quel."
+  },
+  "plWaNote": {
+    "message": "Une discussion à la fois : WhatsApp n’exporte pas tout d’un coup. Fil te demandera une fois lequel des noms est le tien."
+  },
+  "plTg1": {
+    "message": "Telegram Desktop (sur ordinateur) › Paramètres › Avancé › Exporter les données de Telegram."
+  },
+  "plTg2": {
+    "message": "Coche « Discussions personnelles » et « Groupes privés », format « JSON lisible par machine »."
+  },
+  "plTg3": {
+    "message": "Importe le fichier result.json."
+  },
+  "plTgNote": {
+    "message": "Les discussions secrètes ne sont jamais exportées."
+  },
+  "plIg1": {
+    "message": "Instagram › Paramètres › Espace Comptes › Vos informations et autorisations › Télécharger vos informations."
+  },
+  "plIg2": {
+    "message": "Format JSON, rubrique Messages."
+  },
+  "plIg3": {
+    "message": "Importe le dossier « messages » (ou les fichiers message_1.json de chaque discussion)."
+  },
+  "plIgNote": {
+    "message": "Comme sur Messenger, les discussions chiffrées de bout en bout peuvent manquer."
+  },
+  "plDc1": {
+    "message": "Discord › Paramètres › Données et confidentialité › Demander toutes mes données."
+  },
+  "plDc2": {
+    "message": "Décompresse le paquet reçu par e-mail et importe tout le dossier."
+  },
+  "plDcNote": {
+    "message": "Discord ne donne que tes propres messages : les conversations sont à sens unique."
+  },
+  "plSnapNote": {
+    "message": "À venir. Snapchat n’exporte que les messages enregistrés."
+  },
+  "plSms": {
+    "message": "SMS (Android)"
+  },
+  "plSmsNote": {
+    "message": "À venir, à partir d’une sauvegarde faite par une application de sauvegarde de SMS."
+  },
+  "plNoExport": {
+    "message": "Pas d’export officiel des messages."
+  },
+  "zipUnreadable": {
+    "message": "Ce .zip est illisible."
+  },
+  "zipMethod": {
+    "message": "« $NAME$ » est compressé d’une façon que Fil ne lit pas.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "notWhatsApp": {
+    "message": "« $NAME$ » ne ressemble pas à un export WhatsApp.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "unknownName": {
+    "message": "Inconnu"
+  },
+  "meName": {
+    "message": "Moi"
+  },
+  "channelN": {
+    "message": "Salon $ID$",
+    "placeholders": {
+      "id": {
+        "content": "$1"
+      }
+    }
+  },
+  "badJson": {
+    "message": "« $NAME$ » n’est pas un fichier JSON lisible.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "notExport": {
+    "message": "« $NAME$ » n’est pas un export que Fil sait lire (Messenger, Instagram, WhatsApp, Telegram, Discord).",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "noReadableFile": {
+    "message": "Aucun fichier lisible : Fil lit les .json, .txt, .csv et .zip."
+  },
+  "nowLinked": {
+    "message": "« $B$ » est maintenant relié à « $A$ ».",
+    "placeholders": {
+      "b": {
+        "content": "$1"
+      },
+      "a": {
+        "content": "$2"
+      }
+    }
+  },
+  "htGroups": {
+    "message": "Groupes"
+  },
+  "htLife": {
+    "message": "Ma vie"
+  },
+  "htGraph": {
+    "message": "Graphe"
+  },
+  "htSources": {
+    "message": "Sources"
+  },
+  "noMoodYet": {
+    "message": "Pas encore d’humeur : résume et tague des conversations"
+  },
+  "lastExchange": {
+    "message": "dernier échange le $DATE$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noMessageShort": {
+    "message": "pas de message"
+  },
+  "folderTitle": {
+    "message": "Choisir tout un dossier d’export (Messenger, Instagram, Discord…)"
+  },
+  "aFolder": {
+    "message": "Un dossier"
+  },
+  "backupAll": {
+    "message": "Sauvegarder tout"
+  },
+  "importYours": {
+    "message": "Importe tes conversations"
+  },
+  "importYoursHint": {
+    "message": "Messenger, WhatsApp, Telegram, Instagram ou Discord : choisis un fichier exporté, ou tout un dossier, ou glisse-le dans cette page. Tout reste sur ce PC."
+  },
+  "seeHowExport": {
+    "message": "Voir comment exporter"
+  },
+  "whichPlatform": {
+    "message": "De quelle plateforme vient ce fichier ?"
+  },
+  "whichName": {
+    "message": "Lequel de ces noms est le tien sur $PLATFORM$ ?",
+    "placeholders": {
+      "platform": {
+        "content": "$1"
+      }
+    }
+  },
+  "dontImport": {
+    "message": "Ne pas importer ce fichier"
+  },
+  "searchPerson": {
+    "message": "Chercher une personne"
+  },
+  "recent": {
+    "message": "Récents"
+  },
+  "mostExchanges": {
+    "message": "Plus d’échanges"
+  },
+  "groupsToo": {
+    "message": "Aussi celles des groupes"
+  },
+  "groupsTooTip": {
+    "message": "Montre aussi les personnes avec qui tu n’as pas de discussion à deux"
+  },
+  "nobodyMatches": {
+    "message": "Personne ne correspond."
+  },
+  "nMsgDuo_one": {
+    "message": "$COUNT$ message à deux",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMsgDuo_other": {
+    "message": "$COUNT$ messages à deux",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMsgGroup_one": {
+    "message": "$COUNT$ message en groupe",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMsgGroup_other": {
+    "message": "$COUNT$ messages en groupe",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "toRememberN": {
+    "message": "$COUNT$ à retenir",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "inGroups": {
+    "message": "dans $GROUPS$",
+    "placeholders": {
+      "groups": {
+        "content": "$1"
+      }
+    }
+  },
+  "samePerson": {
+    "message": "Même personne ?"
+  },
+  "samePersonHint": {
+    "message": " Relier deux noms réunit leurs conversations sur la même fiche. Rien n’est fusionné dans les messages."
+  },
+  "and": {
+    "message": "et"
+  },
+  "link": {
+    "message": "Relier"
+  },
+  "no": {
+    "message": "Non"
+  },
+  "noGroups": {
+    "message": "Aucune conversation de groupe importée."
+  },
+  "onlyYours": {
+    "message": "Seulement tes messages ($PLATFORM$ ne donne pas ceux des autres)",
+    "placeholders": {
+      "platform": {
+        "content": "$1"
+      }
+    }
+  },
+  "ofWhichFrom": {
+    "message": ", dont $COUNT$ de $NAME$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "name": {
+        "content": "$2"
+      }
+    }
+  },
+  "sourcesHint": {
+    "message": "Chaque plateforme a sa façon d’exporter. Une fois le fichier téléchargé, « Importer » (ou « Un dossier ») en haut, ou glisse-le dans la page. Fil reconnaît tout seul d’où il vient."
+  },
+  "available": {
+    "message": "Disponible"
+  },
+  "comingSoon": {
+    "message": "À venir"
+  },
+  "personGone": {
+    "message": "Cette personne n’existe plus."
+  },
+  "linkTo": {
+    "message": "Relier « $NAME$ » à :",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "linkOther": {
+    "message": "Relier à une autre personne…"
+  },
+  "detach": {
+    "message": "détacher"
+  },
+  "moodTopics": {
+    "message": "Humeur et sujets"
+  },
+  "noMoodTopics": {
+    "message": "Pas encore d’humeur ni de sujets : résume et tague ses conversations (dans une conversation, Résumés › Résumer)."
+  },
+  "yourConvs": {
+    "message": "Vos conversations"
+  },
+  "commonGroups": {
+    "message": "Groupes en commun"
+  },
+  "citedElsewhere": {
+    "message": "Cité dans d’autres conversations"
+  },
+  "cited": {
+    "message": "cité"
+  },
+  "grHint": {
+    "message": "Survole un point pour le voir avec ses liens. Clique pour ouvrir. Molette : zoom, glisser : déplacer."
+  },
+  "grYou": {
+    "message": "Toi · $LINKS$",
+    "placeholders": {
+      "links": {
+        "content": "$1"
+      }
+    }
+  },
+  "grNoDuo": {
+    "message": "pas de discussion à deux"
+  },
+  "grInCommon": {
+    "message": " · $GROUPS$ en commun",
+    "placeholders": {
+      "groups": {
+        "content": "$1"
+      }
+    }
+  },
+  "grCited": {
+    "message": " · cité"
+  },
+  "grGroup": {
+    "message": "Groupe $NAME$ · $MESSAGES$ · $MEMBERS$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "messages": {
+        "content": "$2"
+      },
+      "members": {
+        "content": "$3"
+      }
+    }
+  },
+  "grCitedTimes": {
+    "message": " · cité $TIMES$ dans $MONTHS$",
+    "placeholders": {
+      "times": {
+        "content": "$1"
+      },
+      "months": {
+        "content": "$2"
+      }
+    }
+  },
+  "grCitedWith": {
+    "message": "Cité avec $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "grMentions": {
+    "message": "Personnes et lieux cités"
+  },
+  "grRecenter": {
+    "message": "Recentrer"
+  },
+  "grLegendYou": {
+    "message": "toi"
+  },
+  "grLegendPeople": {
+    "message": "personnes ($COUNT$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "grLegendGroups": {
+    "message": "groupes ($COUNT$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "grLegendCited": {
+    "message": "cités ($COUNT$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "grNoMentions": {
+    "message": "Les personnes et les lieux cités apparaissent une fois « À retenir » lu dans tes conversations (Résumés › À retenir › Lire)."
+  },
+  "lfGroup": {
+    "message": "Groupe « $NAME$ »",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "lfWith": {
+    "message": "Avec $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "lfPrompt1": {
+    "message": "Tu écris le journal de vie de $NAME$, qui a des trous de mémoire, pour un mois, à partir de ce qui s’est passé dans ses conversations avec chaque personne ou groupe.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "lfLanguages": {
+    "message": "Les conversations sont souvent en darja algérienne, en français et en anglais ; écris en français.",
+    "placeholders": {
+      "language": {
+        "content": "$1"
+      }
+    }
+  },
+  "lfFormat": {
+    "message": "Réponds exactement dans ce format :"
+  },
+  "lfTitle": {
+    "message": "TITRE: <de 4 à 8 mots>"
+  },
+  "lfMood": {
+    "message": "AMBIANCE: <une phrase sur le mois>"
+  },
+  "lfPoints": {
+    "message": "De 4 à 8 points : les événements marquants, ce qui a changé dans ses relations, les décisions et les projets, avec le nom des personnes ou groupes concernés. Du plus important au moins important. Pas de jugement, pas de diagnostic, rien d’inventé."
+  },
+  "loading": {
+    "message": "Chargement…"
+  },
+  "lfNote": {
+    "message": "$WRITTEN$ mois écrits sur $TOTAL$ · à partir des chapitres et des résumés de toutes tes conversations",
+    "placeholders": {
+      "written": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "nMonthWritten_one": {
+    "message": "$COUNT$ mois écrit",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "nMonthWritten_other": {
+    "message": "$COUNT$ mois écrits",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "lfNeedSummaries": {
+    "message": "Résume d’abord des conversations (dans chaque conversation : Résumés › Résumer) : « Ma vie » s’écrit à partir de leurs résumés."
+  },
+  "lfNeedLlm": {
+    "message": "Configure un LLM dans les Réglages pour écrire les mois."
+  },
+  "lfStale": {
+    "message": " · de nouveaux résumés depuis : à refaire"
+  },
+  "lfWriteMonth": {
+    "message": "Écrire ce mois"
+  },
+  "lfFailed": {
+    "message": "Le mois n’a pas pu être écrit.\n$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "badUrl": {
+    "message": "L’adresse doit commencer par https:// (ou http:// pour un service sur ce PC)."
+  }
+}

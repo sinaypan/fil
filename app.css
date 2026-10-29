@@ -1039,6 +1039,26 @@ main {
   padding: 5px 9px;
 }
 
+/* The conversation tabs share a narrow sidebar: each takes the room its label needs and,
+   in a language with long words, shortens it rather than overflowing. */
+#tabs button {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 3px;
+  padding: 5px 3px;
+}
+
+#tabs button > span:last-child:not([data-icon]) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#tabs button.icon-only {
+  flex: none;
+  padding: 5px 6px;
+}
+
 .modes {
   display: inline-flex;
   margin: 2px 0 14px;
@@ -2482,4 +2502,501 @@ main {
 .portrait-text li {
   margin: 3px 0;
   line-height: 1.5;
+}
+
+/* ---------- Home screen ---------- */
+
+body.home {
+  grid-template-columns: 1fr;
+}
+
+body.home aside {
+  display: none;
+}
+
+body.home #view {
+  max-width: 1080px;
+}
+
+.homehead {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 -28px 10px;
+  padding: 16px 28px 12px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.brand img {
+  width: 26px;
+  height: 26px;
+}
+
+.homehead .segmented button {
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.homehead .grow,
+.homebar .grow {
+  flex: 1;
+}
+
+.homehead .icon-btn.on {
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.batchbox {
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--field);
+  font-size: 12px;
+}
+
+.batchbox .batch-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.batchbox .bar {
+  height: 4px;
+  margin: 8px 0 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--sep);
+}
+
+.batchbox .bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.homesearch {
+  width: 220px;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 999px;
+  outline: none;
+  background: var(--field);
+  color: var(--text);
+  font: inherit;
+}
+
+.homesearch:focus-visible {
+  outline: 2px solid var(--accent);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.homecard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--field);
+  text-align: left;
+}
+
+button.homecard:hover {
+  background: color-mix(in srgb, var(--accent) 7%, var(--field));
+}
+
+.hc-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.hc-name {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hc-name b {
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hc-foot {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.hc-foot .flag {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.pbadge b {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background: var(--pc);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+#title .pbadge {
+  margin-right: 2px;
+  vertical-align: 3px;
+}
+
+.avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: hsl(var(--h) 55% 88%);
+  color: hsl(var(--h) 45% 30%);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  .avatar {
+    background: hsl(var(--h) 30% 30%);
+    color: hsl(var(--h) 60% 85%);
+  }
+}
+
+.avatar.big {
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+}
+
+.moodline {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.moodline .seg {
+  border-radius: 2px;
+}
+
+.moodline.nomood {
+  background: var(--sep);
+}
+
+.suggest {
+  margin-bottom: 12px;
+}
+
+.suggestrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.suggestrow .avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 11px;
+}
+
+.suggestrow .grow {
+  flex: 1;
+}
+
+.pending-card .chips .chip {
+  background: var(--bg);
+}
+
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px 0 8px;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#who .backlink {
+  margin: 0 0 8px -2px;
+  font-size: 12px;
+}
+
+.personhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.personhead .grow {
+  flex: 1;
+}
+
+.pname {
+  padding: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.pname:hover {
+  color: var(--accent);
+}
+
+.pname-input {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 8px;
+  outline: 2px solid var(--accent);
+  background: var(--field);
+  color: var(--text);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.idents {
+  margin-bottom: 8px;
+}
+
+.idents .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--field);
+}
+
+.factlist {
+  gap: 0;
+  padding: 4px 14px;
+}
+
+.factline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.factline + .factline {
+  border-top: 1px solid var(--sep);
+}
+
+.factline .grow {
+  flex: 1;
+}
+
+.factline:hover {
+  color: var(--accent);
+}
+
+.sources .steps {
+  margin: 0;
+  padding-left: 18px;
+  list-style: decimal;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.homecard.later {
+  opacity: 0.6;
+}
+
+.lifechip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg);
+  font-size: 12px;
+}
+
+/* ---------- Groups inside a thread ---------- */
+
+.who {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 2px 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.who::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  content: '';
+}
+
+.who.p-other::before { background: var(--p-other); }
+.who.p-m1::before, .k.p-m1, .seg.p-m1 { background: var(--m1); }
+.who.p-m2::before, .k.p-m2, .seg.p-m2 { background: var(--m2); }
+.who.p-m3::before, .k.p-m3, .seg.p-m3 { background: var(--m3); }
+.who.p-m5::before, .k.p-m5, .seg.p-m5 { background: var(--m5); }
+.who.p-m6::before, .k.p-m6, .seg.p-m6 { background: var(--m6); }
+.k.p-rest, .seg.p-rest { background: var(--muted); }
+
+/* ---------- Graph ---------- */
+
+.graphbox {
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--field);
+}
+
+.graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.graph:active {
+  cursor: grabbing;
+}
+
+.g-edge {
+  stroke: var(--sep);
+  stroke-linecap: round;
+}
+
+.g-edge.duo {
+  stroke: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.g-edge.mention {
+  stroke-dasharray: 3 4;
+}
+
+.g-node circle,
+.g-node rect {
+  stroke: var(--field);
+  stroke-width: 2;
+}
+
+.g-node.me circle,
+.k.g-me {
+  fill: var(--accent);
+  background: var(--accent);
+}
+
+.g-node.person circle,
+.k.g-person {
+  fill: #7d7aff;
+  background: #7d7aff;
+}
+
+.g-node.person.cited circle {
+  stroke: #b87900;
+  stroke-dasharray: 3 2;
+}
+
+.g-node.group rect,
+.k.g-group {
+  fill: var(--m2);
+  background: var(--m2);
+}
+
+.g-node.mention circle,
+.g-node.place circle,
+.k.g-mention {
+  fill: var(--bg);
+  stroke: #b87900;
+  stroke-width: 1.5;
+  background: #b87900;
+}
+
+.g-node {
+  cursor: pointer;
+}
+
+.g-label {
+  fill: var(--text);
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--field);
+  stroke-width: 3px;
+  pointer-events: none;
+}
+
+.g-label.small {
+  opacity: 0;
+}
+
+.graph.focused .g-node:not(.on),
+.graph.focused .g-edge:not(.on) {
+  opacity: 0.12;
+}
+
+.graph.focused .g-node.on .g-label.small {
+  opacity: 1;
+}
+
+.graph.focused .g-edge.on {
+  stroke: var(--accent);
+}
+
+.graphpanel:not(:empty) {
+  margin-top: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--field);
 }

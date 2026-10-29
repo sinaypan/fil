@@ -8,12 +8,12 @@ const REPLY_MAX = 6 * 3600e3; // a reply later than this is not counted as a rep
 const SAMPLE_PER_PERSON = 40; // messages of each person sent with the summaries for the portrait
 
 const LANGS = [
-  ['darja', 'Darja'],
-  ['fr', 'Français'],
-  ['en', 'Anglais'],
-  ['mix', 'Mélangé'],
-  ['short', 'Court (1-2 mots, emoji)'],
-  ['other', 'Pas reconnu'],
+  ['darja', t('lgDarja')],
+  ['fr', t('lgFrench')],
+  ['en', t('lgEnglish')],
+  ['mix', t('lgMixed')],
+  ['short', t('lgShort')],
+  ['other', t('lgOther')],
 ];
 const words = (list) => new Set(list.split(' '));
 const FR_WORDS = words(
@@ -108,7 +108,16 @@ function withReadout(chart, hint) {
   return [chart, readout];
 }
 
-const personClass = (p) => (p === state.thread.me ? 'p-me' : 'p-other');
+// You keep the accent colour; in a duo the other person is teal; in a group each member
+// gets a categorical slot in the order of the participants (after five, grey).
+const GROUP_SLOTS = ['m2', 'm1', 'm3', 'm5', 'm6'];
+function personClass(p) {
+  const thread = state.thread;
+  if (p === thread.me) return 'p-me';
+  if (thread.kind !== 'group') return 'p-other';
+  const i = thread.participants.filter((x) => x !== thread.me).indexOf(p);
+  return i >= 0 && i < GROUP_SLOTS.length ? `p-${GROUP_SLOTS[i]}` : 'p-rest';
+}
 
 function legend(items) {
   return el(
@@ -127,7 +136,7 @@ function shareBar(parts, total) {
       .filter(([, n]) => n > 0)
       .map(([cls, n, label]) => {
         const pct = (n / total) * 100;
-        return el('span', { class: `seg ${cls}`, style: `flex:${n}`, 'data-tip': `${label} : ${num(n)} (${Math.round(pct)} %)` }, pct >= 12 ? `${Math.round(pct)} %` : '');
+        return el('span', { class: `seg ${cls}`, style: `flex:${n}`, 'data-tip': t('kv', label, `${num(n)} (${percent(pct / 100)})`) }, pct >= 12 ? percent(pct / 100) : '');
       }),
   );
 }
@@ -151,23 +160,23 @@ function figures(stats) {
       el(
         'div',
         { class: 'tiles' },
-        tile(`${Math.round((s.messages / total) * 100)} %`, `des messages (${num(s.messages)})`),
-        tile(num(Math.round(s.words / Math.max(1, texts))), 'mots par message'),
-        tile(reply == null ? '–' : duration(reply).replace(/^0 min$/, '< 1 min'), 'pour répondre (médiane)', 'La moitié des réponses arrivent plus vite que ça (réponses de moins de 6 h).'),
-        tile(`${Math.round((s.starts / convs) * 100)} %`, 'des conversations lancées'),
-        tile(num(s.relaunch), 'relances après 24 h de silence'),
-        tile(num(s.questions), 'questions posées'),
-        tile(`${Math.round((s.night / Math.max(1, s.messages)) * 100)} %`, 'de messages entre 0 h et 5 h'),
-        tile(num(s.media), 'photos ou vidéos'),
-        tile(num(s.reactsGiven), 'réactions données'),
-        tile(num(s.unsent), 'messages retirés'),
+        tile(percent(s.messages / total), t('stOfMessages', num(s.messages))),
+        tile(num(Math.round(s.words / Math.max(1, texts))), t('stWordsPerMsg')),
+        tile(reply == null ? '–' : reply < 30e3 ? t('stUnderMin') : duration(reply), t('stToReply'), t('stToReplyTip')),
+        tile(percent(s.starts / convs), t('stStarted')),
+        tile(num(s.relaunch), t('stRelaunch')),
+        tile(num(s.questions), t('stQuestions')),
+        tile(percent(s.night / Math.max(1, s.messages)), t('stNight')),
+        tile(num(s.media), t('stMedia')),
+        tile(num(s.reactsGiven), t('stReacts')),
+        tile(num(s.unsent), t('stUnsent')),
       ),
-      emojis.length > 0 && el('p', { class: 'emojis' }, el('span', { class: 'muted', text: 'Emojis favoris : ' }), emojis.map(([e, n]) => el('span', { class: 'emo', title: `${num(n)} fois`, text: e }))),
+      emojis.length > 0 && el('p', { class: 'emojis' }, el('span', { class: 'muted', text: t('stEmojis') }), emojis.map(([e, n]) => el('span', { class: 'emo', title: plural(n, 'nTimes'), text: e }))),
     );
   });
   const share = withReadout(
     shareBar(stats.people.map((p) => [personClass(p), stats.by.get(p).messages, firstName(p)]), total),
-    'Part des messages de chacun',
+    t('stShare'),
   );
   return [el('div', { class: 'chartbox' }, share), el('div', { class: 'pcards' }, cards)];
 }
@@ -186,23 +195,23 @@ function languages(stats) {
   const box = el('div', { class: 'chartbox' }, rows);
   return [
     legend(LANGS.map(([, label], i) => [`c${i + 1}`, label])),
-    ...withReadout(box, 'Langue de chaque message, devinée à partir des mots courants de chaque langue (approximatif).'),
+    ...withReadout(box, t('stLangHint')),
   ];
 }
 
 function rhythm(stats) {
-  const days = ['lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.', 'dim.'];
+  const days = weekdays('short');
   let max = 1;
   for (const row of stats.hours) for (const cell of row) max = Math.max(max, [...cell.values()].reduce((a, b) => a + b, 0));
   const grid = el('div', { class: 'heat' });
   grid.append(el('span'));
-  for (let h = 0; h < 24; h++) grid.append(el('span', { class: 'hh', text: h % 3 === 0 ? `${h} h` : '' }));
+  for (let h = 0; h < 24; h++) grid.append(el('span', { class: 'hh', text: h % 3 === 0 ? hourText(h) : '' }));
   stats.hours.forEach((row, d) => {
     grid.append(el('span', { class: 'dd', text: days[d] }));
     row.forEach((cell, h) => {
       const n = [...cell.values()].reduce((a, b) => a + b, 0);
       const detail = stats.people.map((p) => `${firstName(p)} ${num(cell.get(p) || 0)}`).join(', ');
-      grid.append(el('span', { class: 'hc', style: `--v:${(n / max).toFixed(3)}`, 'data-tip': `${days[d]} ${h} h–${h + 1} h : ${plural(n, 'message', 'messages')}${n ? ` (${detail})` : ''}` }));
+      grid.append(el('span', { class: 'hc', style: `--v:${(n / max).toFixed(3)}`, 'data-tip': t('kv', `${days[d]} ${hourText(h)}–${hourText((h + 1) % 24)}`, `${plural(n, 'nMessage')}${n ? ` (${detail})` : ''}`) }));
     });
   });
   // Messages per week, one bar per week, each person stacked.
@@ -215,7 +224,7 @@ function rhythm(stats) {
       const total = [...m.values()].reduce((a, b) => a + b, 0);
       return el(
         'div',
-        { class: 'wbar', 'data-tip': `${periodOf('week', from).label} : ${plural(total, 'message', 'messages')} (${stats.people.map((p) => `${firstName(p)} ${num(m.get(p) || 0)}`).join(', ')})` },
+        { class: 'wbar', 'data-tip': t('kv', periodOf('week', from).label, `${plural(total, 'nMessage')} (${stats.people.map((p) => `${firstName(p)} ${num(m.get(p) || 0)}`).join(', ')})`) },
         [...stats.people].reverse().map((p) => el('span', { class: `seg ${personClass(p)}`, style: `height:${(((m.get(p) || 0) / top) * 100).toFixed(2)}%` })),
       );
     }),
@@ -223,11 +232,11 @@ function rhythm(stats) {
   const firstWeek = weeks[0]?.[0];
   const lastWeek = weeks[weeks.length - 1]?.[0];
   return [
-    ...withReadout(el('div', { class: 'chartbox' }, grid), 'Messages par jour et par heure : plus c’est foncé, plus vous écrivez.'),
+    ...withReadout(el('div', { class: 'chartbox' }, grid), t('stHeatHint')),
     legend(stats.people.map((p) => [personClass(p), firstName(p)])),
     ...withReadout(
       el('div', { class: 'chartbox' }, bars, firstWeek && el('div', { class: 'wlabels' }, el('span', { text: fmt.dayMonth.format(firstWeek) }), el('span', { text: fmt.dayMonth.format(lastWeek) }))),
-      'Messages par semaine (survole une barre)',
+      t('stWeeksHint'),
     ),
   ];
 }
@@ -238,7 +247,7 @@ function moodStudy(stats) {
   const totals = new Map();
   for (const c of summarized) for (const t of convTags(c)) if (ambiance.has(t)) totals.set(t, (totals.get(t) || 0) + 1);
   const top = [...totals].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([t]) => t);
-  if (!top.length) return [el('p', { class: 'edge', text: 'Pas encore de tags d’ambiance : ils arrivent avec les résumés (ou « Taguer » dans Résumés).' })];
+  if (!top.length) return [el('p', { class: 'edge', text: t('stNoMood') })];
   const months = new Map();
   for (const c of summarized) {
     const m = periodOf('month', c.from);
@@ -255,7 +264,7 @@ function moodStudy(stats) {
         'div',
         { class: 'langrow' },
         el('span', { class: 'rlabel', text: m.label.replace(/ \d{4}$/, '') }),
-        shareBar(top.map((t) => [`m${moodSlot(t)}`, m.tags.get(t) || 0, `${m.label} · ${t} : ${num(m.tags.get(t) || 0)} conversations sur ${num(m.total)}`]), tagged),
+        shareBar(top.map((tag) => [`m${moodSlot(tag)}`, m.tags.get(tag) || 0, t('stMoodCell', m.label, tag, num(m.tags.get(tag) || 0), num(m.total))]), tagged),
       );
     });
   // A few plain observations: when and how long each mood happens, compared with the rest.
@@ -265,22 +274,22 @@ function moodStudy(stats) {
   };
   const baseNight = summarized.filter(nightOf).length / Math.max(1, summarized.length);
   const baseLength = summarized.reduce((s, c) => s + convCount(c), 0) / Math.max(1, summarized.length);
-  const notes = top.slice(0, 4).map((t) => {
-    const list = summarized.filter((c) => convTags(c).includes(t));
+  const notes = top.slice(0, 4).map((tag) => {
+    const list = summarized.filter((c) => convTags(c).includes(tag));
     const night = list.filter(nightOf).length / list.length;
     const length = list.reduce((s, c) => s + convCount(c), 0) / list.length;
     const starters = new Map();
     for (const c of list) starters.set(state.thread.messages[c.start].from, (starters.get(state.thread.messages[c.start].from) || 0) + 1);
     const lead = [...starters].sort((a, b) => b[1] - a[1])[0];
-    const parts = [`${plural(list.length, 'conversation', 'conversations')}`];
-    if (Math.abs(night - baseNight) > 0.08) parts.push(`${night > baseNight ? 'plus souvent' : 'moins souvent'} la nuit (${Math.round(night * 100)} % commencent entre 23 h et 5 h, contre ${Math.round(baseNight * 100)} % en général)`);
-    if (Math.abs(length - baseLength) / baseLength > 0.2) parts.push(`${length > baseLength ? 'plus longues' : 'plus courtes'} que la moyenne (${Math.round(length)} messages contre ${Math.round(baseLength)})`);
-    if (lead && list.length >= 4) parts.push(`lancées le plus souvent par ${firstName(lead[0])} (${Math.round((lead[1] / list.length) * 100)} %)`);
-    return el('li', {}, el('button', { type: 'button', class: `tag ambiance`, text: t, onclick: () => filterByTag(t) }), ` ${parts.join(' · ')}.`);
+    const parts = [`${plural(list.length, 'nConv')}`];
+    if (Math.abs(night - baseNight) > 0.08) parts.push(t(night > baseNight ? 'stMoreNight' : 'stLessNight', percent(night), percent(baseNight)));
+    if (Math.abs(length - baseLength) / baseLength > 0.2) parts.push(t(length > baseLength ? 'stLonger' : 'stShorter', num(Math.round(length)), num(Math.round(baseLength))));
+    if (lead && list.length >= 4) parts.push(t('stLedBy', firstName(lead[0]), percent(lead[1] / list.length)));
+    return el('li', {}, el('button', { type: 'button', class: `tag ambiance`, text: tag, onclick: () => filterByTag(tag) }), ` ${parts.join(' · ')}.`);
   });
   return [
     legend(top.map((t) => [`m${moodSlot(t)}`, t])),
-    ...withReadout(el('div', { class: 'chartbox' }, rows), 'Part de chaque ambiance parmi les conversations résumées, mois par mois'),
+    ...withReadout(el('div', { class: 'chartbox' }, rows), t('stMoodHint')),
     el('ul', { class: 'notes' }, notes),
   ];
 }
@@ -304,8 +313,8 @@ function statsText(stats) {
       const s = stats.by.get(p);
       const reply = median(s.replies);
       const texts = [...s.langs.values()].reduce((a, b) => a + b, 0) || 1;
-      const langs = LANGS.map(([k, label]) => `${label} ${Math.round(((s.langs.get(k) || 0) / texts) * 100)} %`).join(', ');
-      return `${firstName(p)} : ${num(s.messages)} messages, ${Math.round(s.words / texts)} mots par message, réponse médiane ${reply == null ? 'inconnue' : duration(reply)}, lance ${num(s.starts)} conversations sur ${num(stats.convs.length)}, ${num(s.questions)} questions, ${num(s.night)} messages entre 0 h et 5 h, langues : ${langs}.`;
+      const langs = LANGS.map(([k, label]) => `${label} ${percent((s.langs.get(k) || 0) / texts)}`).join(', ');
+      return t('stLine', firstName(p), num(s.messages), Math.round(s.words / texts), reply == null ? t('stUnknown') : duration(reply), num(s.starts), num(stats.convs.length), num(s.questions), num(s.night), langs);
     })
     .join('\n');
 }
@@ -314,39 +323,37 @@ async function writePortraits(button) {
   if (!state.llm?.url) return showView('reglages');
   const stats = analyse(visibleConvs());
   const convs = stats.convs.filter(isSummarized).sort((a, b) => a.from - b.from);
-  if (!convs.length) return showNotice('Résume d’abord des conversations : le portrait s’appuie sur les résumés.', 'error');
+  if (!convs.length) return showNotice(t('stNeedSummaries'), 'error');
   const thread = state.thread;
   if (button) button.disabled = true;
   state.portraitBusy = true;
   renderMain();
   try {
-    const samples = stats.people.map((p) => `Quelques messages de ${firstName(p)} (pour la façon d’écrire) :\n${sampleMessages(p, stats.convs, SAMPLE_PER_PERSON).map((m) => `- ${m.text.replace(/\s*\n\s*/g, ' / ')}`).join('\n')}`).join('\n\n');
-    const [me, other] = stats.people.map(firstName);
+    const samples = stats.people.map((p) => `${t('prSamples', firstName(p))}\n${sampleMessages(p, stats.convs, SAMPLE_PER_PERSON).map((m) => `- ${m.text.replace(/\s*\n\s*/g, ' / ')}`).join('\n')}`).join('\n\n');
+    const group = thread.kind === 'group';
+    const active = [...stats.people].sort((a, b) => stats.by.get(b).messages - stats.by.get(a).messages);
+    const shown = group ? [thread.me, ...active.filter((p) => p !== thread.me).slice(0, 5)] : stats.people;
+    const [me, other] = stats.people.map(shortName);
+    const sections = group
+      ? [...shown.map((p) => `## ${shortName(p)}`), t('prSameFour'), t('prGroup'), t('prGroupHow'), t('prWhoReacts'), t('prTensions'), t('prGroupWorks')]
+      : [`## ${me}`, t('prFour'), `## ${other}`, t('prSameFourOne'), t('prRelation'), t('prHowYou'), t('prTensions'), t('prWorksYou')];
     const text = await chat([
       {
         role: 'system',
         content: [
           llmIntro(),
-          `Tu fais un portrait DESCRIPTIF de ${me} et de ${other} tels qu’ils apparaissent dans ces conversations, et de leur relation.`,
-          'Règles : seulement ce qu’on observe dans les données fournies. Pas de diagnostic, pas d’étiquette psychologique ou médicale (anxieux, narcissique, toxique, dépressif, manipulateur, TDAH…), pas de jugement moral, pas de supposition sur ce qui n’y est pas. Décris des habitudes et des façons de faire, pas la valeur des personnes. Appuie chaque point sur des exemples en citant les conversations par leur numéro entre crochets, par exemple [12].',
-          'Réponds en français, exactement avec ces titres :',
-          `## ${me}`,
-          '### Façon d’écrire',
-          '### Sujets qui reviennent',
-          '### Ce qui le ou la fait réagir',
-          '### Ce qu’il ou elle apporte à l’échange',
-          `## ${other}`,
-          '(les mêmes quatre sous-titres)',
-          '## La relation',
-          '### Comment vous échangez',
-          '### Ce qui revient dans les tensions',
-          '### Ce qui marche bien entre vous',
-          'Sous chaque sous-titre, 2 à 4 points courts commençant par « - ».',
+          group
+            ? t('prIntroGroup', titleOf(thread))
+            : t('prIntroPair', me, other),
+          t('prRules'),
+          t('prHeadings', LANG_NAME),
+          ...sections,
+          t('prPoints'),
         ].join('\n'),
       },
       {
         role: 'user',
-        content: `Chiffres :\n${statsText(stats)}\n\n${samples}\n\nRésumés des conversations :\n\n${summaryList(convs, true)}`,
+        content: t('prUser', statsText(stats), samples, summaryList(convs, true)),
       },
     ]);
     const refs = {};
@@ -359,7 +366,7 @@ async function writePortraits(button) {
     await put('prefs', record);
     state.portrait = record;
   } catch (e) {
-    showNotice(`Le portrait n’a pas pu être écrit.\n${e.message}`, 'error');
+    showNotice(t('prFailed', e.message), 'error');
   } finally {
     state.portraitBusy = false;
     renderMain();
@@ -394,9 +401,9 @@ function portraitCard(stats) {
   const chars = stats.convs.filter(isSummarized).reduce((s, c) => s + state.summary.get(c.index).text.length + 80, 0) + SAMPLE_PER_PERSON * 2 * 60;
   const button = el(
     'button',
-    { type: 'button', class: 'pill accent small', disabled: state.portraitBusy || !summarized || !state.llm?.url, title: `Environ ${num(Math.round(chars / 3.2 / 1000) * 1000)} tokens envoyés` },
+    { type: 'button', class: 'pill accent small', disabled: state.portraitBusy || !summarized || !state.llm?.url, title: t('aboutTokensSent', num(Math.round(chars / 3.2 / 1000) * 1000)) },
     state.portraitBusy ? el('span', { class: 'spinner light' }) : icon('spark'),
-    state.portraitBusy ? 'Écriture…' : record ? 'Refaire le portrait' : 'Écrire le portrait',
+    t(state.portraitBusy ? 'prWriting' : record ? 'prRedo' : 'prWrite'),
   );
   button.addEventListener('click', () => writePortraits(button));
   return el(
@@ -408,17 +415,17 @@ function portraitCard(stats) {
       el(
         'div',
         {},
-        el('b', { text: 'Portrait des deux, et de la relation' }),
+        el('b', { text: t('prTitle') }),
         el('p', {
           class: 'muted',
-          text: `Descriptif : des habitudes observées dans ${plural(summarized, 'résumé', 'résumés')}${filterActive() ? ' (filtrés)' : ''}, les chiffres ci-dessus et ${SAMPLE_PER_PERSON} messages de chacun. Pas un jugement, pas un diagnostic.`,
+          text: t('prDesc', plural(summarized, 'nSummary'), filterActive() ? t('prFilteredParen') : '', SAMPLE_PER_PERSON),
         }),
       ),
       button,
     ),
-    record && el('p', { class: 'muted small', text: `Écrit le ${fmt.full.format(record.at)} par ${record.by}, sur ${plural(record.scope, 'conversation', 'conversations')}${record.filtered ? ` (${record.filtered})` : ''}${stale ? ' · la période ou les résumés ont changé depuis : refais-le pour le mettre à jour' : ''}.` }),
+    record && el('p', { class: 'muted small', text: `${t('prWrittenOn', fmt.full.format(record.at), record.by, plural(record.scope, 'nConv'))}${record.filtered ? ` (${record.filtered})` : ''}${stale ? t('prStale') : ''}.` }),
     record && el('div', { class: 'portrait-text' }, renderPortrait(record)),
-    !state.llm?.url && el('p', { class: 'hint', text: 'Configure un LLM dans les Réglages pour écrire le portrait.' }),
+    !state.llm?.url && el('p', { class: 'hint', text: t('prNeedLlm') }),
   );
 }
 
@@ -429,19 +436,19 @@ function analyseView() {
   const stats = analyse(convs);
   const first = convs.reduce((a, c) => Math.min(a, c.from), Infinity);
   const last = convs.reduce((a, c) => Math.max(a, c.to), -Infinity);
-  const scope = convs.length ? `${plural(convs.length, 'conversation', 'conversations')}, du ${fmt.date.format(first)} au ${fmt.date.format(last)}${filterActive() ? ` · filtré (${filterSummary()})` : ''}` : 'Aucune conversation avec ces filtres.';
-  if (!convs.length) return [head('Analyse', scope)];
+  const scope = convs.length ? `${t('anScope', plural(convs.length, 'nConv'), fmt.date.format(first), fmt.date.format(last))}${filterActive() ? t('anFiltered', filterSummary()) : ''}` : t('anNoConv');
+  if (!convs.length) return [head(t('anTitle'), scope)];
   return [
-    head('Analyse', `${scope} · calculé sur ce PC, sauf le portrait`),
-    el('h3', { class: 'group', text: 'En chiffres' }),
+    head(t('anTitle'), scope + t('anLocal')),
+    el('h3', { class: 'group', text: t('anFigures') }),
     ...figures(stats),
-    el('h3', { class: 'group', text: 'Langues' }),
+    el('h3', { class: 'group', text: t('anLanguages') }),
     ...languages(stats),
-    el('h3', { class: 'group', text: 'Quand vous écrivez' }),
+    el('h3', { class: 'group', text: t('anWhen') }),
     ...rhythm(stats),
-    el('h3', { class: 'group', text: 'Humeur' }),
+    el('h3', { class: 'group', text: t('anMood') }),
     ...moodStudy(stats),
-    el('h3', { class: 'group', text: 'Portrait' }),
+    el('h3', { class: 'group', text: t('anPortrait') }),
     portraitCard(stats),
   ];
 }

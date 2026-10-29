@@ -40,7 +40,7 @@ function rebuildConvs() {
 }
 
 async function setCut(id, decision) {
-  if (state.batch) return showNotice('Attends la fin du travail en cours (ou arrête-le) avant de changer le découpage.', 'error');
+  if (state.batch) return showNotice(t('waitWork'), 'error');
   state.cuts.merge = state.cuts.merge.filter((x) => x !== id);
   state.cuts.split = state.cuts.split.filter((x) => x !== id);
   if (decision === 'merge') state.cuts.merge.push(id);
@@ -68,7 +68,7 @@ function doubtfulCuts() {
 
 function doubtLines(from, to) {
   const messages = state.thread.messages.slice(Math.max(0, from), Math.max(0, to));
-  return messages.map((m) => `[${fmt.time.format(m.ts)}] ${firstName(m.from)} : ${messageText(m).replace(/\s*\n\s*/g, ' / ')}`);
+  return messages.map((m) => t('trLine', fmt.time.format(m.ts), shortName(m.from), messageText(m).replace(/\s*\n\s*/g, ' / ')));
 }
 
 async function decideCut(doubt, signal) {
@@ -82,19 +82,19 @@ async function decideCut(doubt, signal) {
         role: 'system',
         content: [
           systemPrompt().split('\n').slice(0, 2).join('\n'),
-          'On te montre la fin d’un échange et le début du suivant, séparés par un silence.',
-          'Dis si c’est la MÊME conversation qui continue (on répond à ce qui précède, même sujet, on reprend là où on en était) ou une NOUVELLE conversation (nouveau sujet, salutations, autre moment de la journée).',
-          'Réponds par un seul mot : MEME ou NOUVELLE.',
+          t('cPrompt1'),
+          t('cPrompt2'),
+          t('cPrompt3'),
         ].join('\n'),
       },
-      { role: 'user', content: `Avant :\n${before.join('\n')}\n\n--- silence de ${duration(doubt.silence)} ---\n\nAprès :\n${after.join('\n')}` },
+      { role: 'user', content: t('cUser', before.join('\n'), duration(doubt.silence), after.join('\n')) },
     ],
     signal,
   );
   if (state.thread !== thread || state.gap !== gap) return;
   const word = answer.trim().toUpperCase().normalize('NFD').replace(/\p{M}/gu, '');
-  const decision = /NOUVEL/.test(word) ? 'new' : /MEME|SAME/.test(word) ? 'same' : null;
-  if (!decision) throw new Error(`Réponse incomprise : « ${answer.trim().slice(0, 60)} »`);
+  const decision = /NOUVEL|\bNEW\b/.test(word) ? 'new' : /MEME|SAME/.test(word) ? 'same' : null;
+  if (!decision) throw new Error(t('cBadAnswer', answer.trim().slice(0, 60)));
   state.cuts.llm[gap] ||= {};
   state.cuts.llm[gap][doubt.id] = decision;
   await saveCuts();
@@ -102,8 +102,8 @@ async function decideCut(doubt, signal) {
 
 async function runDoubts() {
   const doubts = doubtfulCuts();
-  if (!doubts.length) return showNotice('Aucune coupure douteuse à vérifier.');
-  await runJobs(doubts, decideCut, 'Coupures', ['coupure vérifiée', 'coupures vérifiées']);
+  if (!doubts.length) return showNotice(t('noDoubtful'));
+  await runJobs(doubts, decideCut, t('batchCuts'), 'nCutChecked');
   rebuildConvs();
   render();
 }
@@ -125,7 +125,7 @@ async function forgetHandCuts() {
 
 // The part of the Settings about the cut.
 function cutsPanel() {
-  if (!state.thread) return null;
+  if (!state.thread || state.screen !== 'thread') return null;
   const doubts = doubtfulCuts();
   const decided = Object.values(state.cuts.llm[state.gap] || {});
   const same = decided.filter((d) => d === 'same').length;
@@ -139,8 +139,8 @@ function cutsPanel() {
     el(
       'div',
       { class: 'cutrow' },
-      el('p', {}, el('b', { text: 'Coupures douteuses' }), el('span', { class: 'muted', text: ` · ${plural(doubts.length, 'silence', 'silences')} entre ${duration(low * 60e3)} et ${duration(high * 60e3)} pas encore vérifiés. Le LLM lit les messages autour et dit si la conversation continue ou s’il en commence une nouvelle.` })),
-      state.llm?.url && doubts.length > 0 && !state.batch && el('button', { type: 'button', class: 'pill accent small', title: `Environ ${num(Math.round(chars / 3.2 / 1000) * 1000)} tokens envoyés`, onclick: runDoubts }, icon('spark'), `Vérifier les ${num(doubts.length)}`),
+      el('p', {}, el('b', { text: t('doubtfulTitle') }), el('span', { class: 'muted', text: t('doubtfulInfo', plural(doubts.length, 'nSilence'), duration(low * 60e3), duration(high * 60e3)) })),
+      state.llm?.url && doubts.length > 0 && !state.batch && el('button', { type: 'button', class: 'pill accent small', title: t('aboutTokensSent', num(Math.round(chars / 3.2 / 1000) * 1000)), onclick: runDoubts }, icon('spark'), t('checkN', num(doubts.length))),
     ),
   );
   if (decided.length) {
@@ -148,8 +148,8 @@ function cutsPanel() {
       el(
         'div',
         { class: 'cutrow' },
-        el('p', {}, el('b', { text: 'Décisions du LLM' }), el('span', { class: 'muted', text: ` · ${plural(same, 'conversation recollée', 'conversations recollées')}, ${plural(fresh, 'nouvelle coupure', 'nouvelles coupures')} (pour l’écart actuel).` })),
-        el('button', { type: 'button', class: 'pill small', text: 'Oublier', onclick: forgetLlmCuts }),
+        el('p', {}, el('b', { text: t('llmDecisions') }), el('span', { class: 'muted', text: t('llmDecisionsInfo', plural(same, 'nConvRejoined'), plural(fresh, 'nNewCut')) })),
+        el('button', { type: 'button', class: 'pill small', text: t('forget'), onclick: forgetLlmCuts }),
       ),
     );
   }
@@ -157,8 +157,8 @@ function cutsPanel() {
     el(
       'div',
       { class: 'cutrow' },
-      el('p', {}, el('b', { text: 'Tes corrections' }), el('span', { class: 'muted', text: hand ? ` · ${plural(state.cuts.merge.length, 'fusion', 'fusions')}, ${plural(state.cuts.split.length, 'coupure', 'coupures')}. Elles passent avant tout le reste, quel que soit l’écart.` : ' · aucune. Dans une conversation : « Fusionner avec la précédente » en haut, ou les ciseaux au survol d’un message pour couper avant lui.' })),
-      hand > 0 && el('button', { type: 'button', class: 'pill small', text: 'Tout annuler', onclick: forgetHandCuts }),
+      el('p', {}, el('b', { text: t('yourFixes') }), el('span', { class: 'muted', text: hand ? t('yourFixesInfo', plural(state.cuts.merge.length, 'nMerge'), plural(state.cuts.split.length, 'nCut')) : t('yourFixesNone') })),
+      hand > 0 && el('button', { type: 'button', class: 'pill small', text: t('undoAll'), onclick: forgetHandCuts }),
     ),
   );
   return rows;
@@ -167,12 +167,12 @@ function cutsPanel() {
 // Inside a conversation: where two pieces were joined, with a way back.
 function joinedSeparator(m, prev) {
   const decision = cutDecision(m.id);
-  const who = decision === 'merge' ? 'par toi' : decision === 'same' ? 'par le LLM' : '';
+  const who = decision === 'merge' ? t('joinedByYou') : decision === 'same' ? t('joinedByLlm') : '';
   return el(
     'p',
     { class: 'sep joined' },
-    `${fmt.time.format(m.ts)} · ${duration(m.ts - prev.ts)} plus tard · recollée ${who}`,
-    el('button', { type: 'button', class: 'inline small', text: 'Couper ici', onclick: () => setCut(m.id, 'split') }),
+    t('joinedSep', fmt.time.format(m.ts), duration(m.ts - prev.ts), who),
+    el('button', { type: 'button', class: 'inline small', text: t('cutHereShort'), onclick: () => setCut(m.id, 'split') }),
   );
 }
 
@@ -183,7 +183,7 @@ function cutNotice(conv) {
   return el(
     'p',
     { class: 'edge cutnote' },
-    decision === 'split' ? 'Tu as coupé ici. ' : 'Le LLM a coupé ici. ',
-    el('button', { type: 'button', class: 'inline small', text: 'Recoller à la précédente', onclick: () => setCut(conv.id, 'merge') }),
+    t(decision === 'split' ? 'youCutHere' : 'llmCutHere') + ' ',
+    el('button', { type: 'button', class: 'inline small', text: t('rejoinPrev'), onclick: () => setCut(conv.id, 'merge') }),
   );
 }

@@ -6,24 +6,25 @@
 // summaries it was written from have changed.
 
 const FACT_TYPES = [
-  ['promesse', 'Promesses', 'quelqu’un s’engage à faire quelque chose'],
-  ['projet', 'Projets', 'quelque chose de prévu ensemble'],
-  ['date', 'Dates', 'un événement daté : anniversaire, rendez-vous, examen'],
-  ['suspens', 'En suspens', 'une question ou un sujet resté sans réponse'],
-  ['fait', 'Faits', 'une information importante sur la vie de l’un ou l’autre'],
+  // key (stored), label, what it is, one of them, the word the LLM writes
+  ['promesse', t('fxPromises'), t('fxPromisesWhat'), t('fxPromise'), t('fwPromise')],
+  ['projet', t('fxPlans'), t('fxPlansWhat'), t('fxPlan'), t('fwPlan')],
+  ['date', t('fxDates'), t('fxDatesWhat'), t('fxDate'), t('fwDate')],
+  ['suspens', t('fxPending'), t('fxPendingWhat'), t('fxPendingOne'), t('fwPending')],
+  ['fait', t('fxFacts'), t('fxFactsWhat'), t('fxFact'), t('fwFact')],
 ];
 const ENTITY_KINDS = [
-  ['personne', 'Personnes'],
-  ['lieu', 'Lieux'],
-  ['autre', 'Autres'],
+  ['personne', t('enPeople'), t('ewPerson')],
+  ['lieu', t('enPlaces'), t('ewPlace')],
+  ['autre', t('enOthers'), t('ewOther')],
 ];
 const RES_VIEWS = [
-  ['convs', 'Conversations', 'bubble'],
-  ['weeks', 'Semaines', 'frise'],
-  ['months', 'Mois', 'doc'],
-  ['facts', 'À retenir', 'check'],
-  ['index', 'Personnes', 'person'],
-  ['asks', 'Questions', 'spark'],
+  ['convs', t('conversations'), 'bubble'],
+  ['weeks', t('weeks'), 'frise'],
+  ['months', t('months'), 'doc'],
+  ['facts', t('toRemember'), 'check'],
+  ['index', t('enPeople'), 'person'],
+  ['asks', t('questions'), 'spark'],
 ];
 
 /* ---------- Periods ---------- */
@@ -40,7 +41,9 @@ function periodOf(kind, ts) {
   const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6);
   const to = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 7).getTime() - 1;
   const sameMonth = monday.getMonth() === sunday.getMonth();
-  const label = `Semaine du ${sameMonth ? monday.getDate() : fmt.dayMonth.format(monday)} au ${fmt.date.format(sunday)}`;
+  // The day alone when the month follows it anyway ("du 3 au 9 août"), else day and month.
+  const dayFirst = fmt.date.format(sunday).startsWith(String(sunday.getDate()));
+  const label = t('weekOf', sameMonth && dayFirst ? monday.getDate() : fmt.dayMonth.format(monday), fmt.date.format(sunday));
   return { kind, from, to, label };
 }
 
@@ -75,7 +78,7 @@ function summaryList(convs, numbered) {
     .filter(isSummarized)
     .map((c) => {
       const s = state.summary.get(c.index);
-      return `${numbered ? `[${c.index + 1}] ` : ''}${convLabel(c)}${s.title ? ` · ${s.title}` : ''}${s.tags.length ? ` · tags : ${s.tags.join(', ')}` : ''}\n${s.text.trim()}`;
+      return `${numbered ? `[${c.index + 1}] ` : ''}${convLabel(c)}${s.title ? ` · ${s.title}` : ''}${s.tags.length ? ` · ${t('trTags', s.tags.join(', '))}` : ''}\n${s.text.trim()}`;
     })
     .join('\n\n');
 }
@@ -93,22 +96,22 @@ function chapterStatus(period) {
 
 async function writeChapter(period, signal) {
   const thread = state.thread;
-  const what = period.kind === 'month' ? 'du mois' : 'de la semaine';
+  const what = t(period.kind === 'month' ? 'chWhatMonth' : 'chWhatWeek');
   const answer = await chat(
     [
       {
         role: 'system',
         content: [
           llmIntro(),
-          `Tu écris le chapitre ${what} à partir des résumés de ses conversations : ce qu’il faudrait relire pour se souvenir de cette période.`,
-          'Réponds en français, exactement dans ce format :',
-          'TITRE: <de 4 à 8 mots>',
-          'AMBIANCE: <une phrase sur le ton général de la période et son évolution>',
-          '- <point important>',
-          `De 3 à ${period.kind === 'month' ? 8 : 6} points, les plus importants, dans l’ordre chronologique, avec le jour entre parenthèses quand il compte. Ce qui a changé, ce qui a été décidé, ce qui s’est passé de marquant. Pas d’introduction.`,
+          t('chPrompt1', what),
+          t('pAnswerIn', LANG_NAME),
+          t('chTitle'),
+          t('chMood'),
+          t('chPoint'),
+          t('chPoints', period.kind === 'month' ? 8 : 6),
         ].join('\n'),
       },
-      { role: 'user', content: `Période : ${period.label} (${plural(period.convs.filter(isSummarized).length, 'conversation résumée', 'conversations résumées')})\n\n${summaryList(period.convs, false)}` },
+      { role: 'user', content: t('chUser', period.label, plural(period.convs.filter(isSummarized).length, 'nConvSummarized'), summaryList(period.convs, false)) },
     ],
     signal,
   );
@@ -144,13 +147,12 @@ function chaptersView(kind) {
   const todo = list.filter((p) => ['none', 'stale'].includes(chapterStatus(p)));
   const written = list.filter((p) => state.chapters.has(p.key)).length;
   const stale = list.filter((p) => chapterStatus(p) === 'stale').length;
-  const word = kind === 'month' ? ['mois', 'mois'] : ['semaine', 'semaines'];
   const actions = [];
   if (state.llm?.url && todo.length && !state.batch) {
-    actions.push(el('button', { type: 'button', class: 'pill accent small', onclick: () => runJobs(todo, writeChapter, 'Chapitres', ['chapitre écrit', 'chapitres écrits']) }, icon('spark'), `Écrire ${plural(todo.length, 'chapitre', 'chapitres')}`));
+    actions.push(el('button', { type: 'button', class: 'pill accent small', onclick: () => runJobs(todo, writeChapter, t('batchChapters'), 'nChapterWritten') }, icon('spark'), t('writeN', plural(todo.length, 'nChapter'))));
   }
-  const out = [head(kind === 'month' ? 'Mois' : 'Semaines', `${num(written)} ${written > 1 ? word[1] : word[0]} sur ${num(list.length)} ont leur chapitre${stale ? ` · ${num(stale)} à refaire` : ''} · écrits à partir des résumés, rien d’autre n’est envoyé`, ...actions)];
-  if (!list.length) return [...out, el('p', { class: 'edge', text: 'Aucune conversation sur cette période.' })];
+  const out = [head(t(kind === 'month' ? 'months' : 'weeks'), `${plural(written, kind === 'month' ? 'chHaveMonth' : 'chHaveWeek', num(list.length))}${stale ? t('chStale', num(stale)) : ''}${t('chFromSummaries')}`, ...actions)];
+  if (!list.length) return [...out, el('p', { class: 'edge', text: t('noConvHere') })];
   const empty = list.filter((p) => chapterStatus(p) === 'empty').length;
   for (const p of [...list].reverse()) {
     if (chapterStatus(p) === 'empty') continue;
@@ -159,7 +161,7 @@ function chaptersView(kind) {
     const missing = p.convs.filter((c) => !isSummarized(c) && textCount(c) >= MIN_TEXTS).length;
     const redo =
       state.llm?.url && status !== 'empty' && !state.batch
-        ? el('button', { type: 'button', class: 'pill small', onclick: (event) => chapterOne(p, event.currentTarget) }, rec ? 'Refaire' : 'Écrire ce chapitre')
+        ? el('button', { type: 'button', class: 'pill small', onclick: (event) => chapterOne(p, event.currentTarget) }, t(rec ? 'redo' : 'writeChapter'))
         : null;
     out.push(
       el(
@@ -168,18 +170,18 @@ function chaptersView(kind) {
         el(
           'div',
           { class: 'chead' },
-          el('button', { type: 'button', class: 'when', title: 'Voir les conversations de cette période', onclick: () => openPeriod(p) }, p.label),
-          el('span', { class: 'muted', text: ` · ${plural(p.convs.length, 'conversation', 'conversations')}${missing ? ` dont ${num(missing)} pas encore résumée${missing > 1 ? 's' : ''}` : ''}${status === 'stale' ? ' · les résumés ont changé : à refaire' : ''}` }),
+          el('button', { type: 'button', class: 'when', title: t('seePeriodConvs'), onclick: () => openPeriod(p) }, p.label),
+          el('span', { class: 'muted', text: ` · ${plural(p.convs.length, 'nConv')}${missing ? plural(missing, 'nOfWhichNotSummarized') : ''}${status === 'stale' ? t('chSummariesChanged') : ''}` }),
           el('span', { class: 'grow' }),
           redo,
         ),
         rec?.title && el('h4', { text: rec.title }),
         rec?.mood && el('p', { class: 'mood', text: rec.mood }),
-        rec ? el('p', { dir: 'auto', text: rec.text }) : el('p', { class: 'muted', text: status === 'empty' ? 'Résume d’abord les conversations de cette période.' : 'Pas encore écrit.' }),
+        rec ? el('p', { dir: 'auto', text: rec.text }) : el('p', { class: 'muted', text: t(status === 'empty' ? 'summarizeFirst' : 'notWrittenYet') }),
       ),
     );
   }
-  if (empty) out.push(el('p', { class: 'edge', text: `${plural(empty, kind === 'month' ? 'mois' : 'semaine', kind === 'month' ? 'mois' : 'semaines')} sans aucune conversation résumée : résume-les d’abord (onglet Conversations ou Frise).` }));
+  if (empty) out.push(el('p', { class: 'edge', text: plural(empty, kind === 'month' ? 'nMonth' : 'nWeek') + t('chEmptyTail') }));
   return out;
 }
 
@@ -190,7 +192,7 @@ async function chapterOne(period, button) {
     renderMain();
   } catch (e) {
     if (button) button.disabled = false;
-    showNotice(`Le chapitre n’a pas pu être écrit.\n${e.message}`, 'error');
+    showNotice(t('chapterFailed', e.message), 'error');
   }
 }
 
@@ -227,18 +229,18 @@ async function extractMemory(period, signal) {
         role: 'system',
         content: [
           llmIntro(),
-          'À partir des résumés numérotés, relève ce qu’il faut retenir. Une ligne par élément, exactement ainsi :',
-          'FAIT | [n] | type | quand | texte',
-          `types : ${FACT_TYPES.map(([k, , what]) => `${k} (${what})`).join(', ')}.`,
-          'quand : la date ou le moment concerné s’il est connu (par exemple « samedi 8 août », « fin septembre »), sinon -',
-          'texte : une phrase courte et précise, qui dit qui fait quoi.',
-          'Puis les personnes et les lieux cités, une ligne par nom :',
-          'ENTITE | personne ou lieu ou autre | nom | qui ou quoi en quelques mots | [n], [m]',
-          `N’ajoute pas ${me} ni ${others.join(' ni ')}.${known.length ? ` Écris les noms déjà connus comme ceci : ${known.slice(0, 80).join(', ')}.` : ''}`,
-          'N’invente rien. S’il n’y a rien à retenir, réponds RIEN.',
+          t('mPrompt1'),
+          t('mFactLine'),
+          t('mTypes', FACT_TYPES.map(([, , what, , word]) => `${word} (${what})`).join(', ')),
+          t('mWhen'),
+          t('mText'),
+          t('mThen'),
+          t('mEntityLine'),
+          t('mNotAdd', me, others.join(t('mNor'))) + (known.length ? t('mKnown', known.slice(0, 80).join(', ')) : ''),
+          t('mNothing'),
         ].join('\n'),
       },
-      { role: 'user', content: `Mois : ${period.label}\n\n${summaryList(period.convs, true)}` },
+      { role: 'user', content: t('mUser', period.label, summaryList(period.convs, true)) },
     ],
     signal,
   );
@@ -246,20 +248,22 @@ async function extractMemory(period, signal) {
   const facts = [];
   const entities = [];
   const convOf = (n) => state.convs[Number(n) - 1];
+  // The French word or the one of the interface language, both accepted.
+  const kindOf = (list, cell, wordAt) => list.find((kind) => [kind[0], kind[wordAt]].some((w) => tagKey(cell).startsWith(tagKey(w).slice(0, 4))))?.[0];
   for (const line of answer.split('\n')) {
     const cells = line.replace(/\*+/g, '').split('|').map((c) => c.trim());
     const kind = tagKey(cells[0] || '');
-    if (kind === 'fait' && cells.length >= 5) {
+    if ((kind === 'fait' || kind === 'fact') && cells.length >= 5) {
       const conv = convOf((cells[1].match(/\d+/) || [])[0]);
-      const type = FACT_TYPES.find(([k]) => tagKey(cells[2]).startsWith(tagKey(k).slice(0, 4)))?.[0] || 'fait';
+      const type = kindOf(FACT_TYPES, cells[2], 4) || 'fait';
       const text = cells.slice(4).join(' | ').trim();
       if (!text) continue;
       facts.push({ id: hash(`${type}\u0001${tagKey(text)}`), type, when: cells[3] === '-' ? '' : cells[3], text, ts: conv?.from ?? period.from });
-    } else if (kind === 'entite' && cells.length >= 4) {
+    } else if ((kind === 'entite' || kind === 'entity') && cells.length >= 4) {
       const name = cells[2].replace(/^[«"]|[»"]$/g, '').trim();
       if (!name || others.some((o) => tagKey(o) === tagKey(name)) || tagKey(name) === tagKey(me)) continue;
       const refs = [...(cells[4] || '').matchAll(/\d+/g)].map((m) => convOf(m[0])?.from).filter(Number.isFinite);
-      const type = ENTITY_KINDS.find(([k]) => tagKey(cells[1]).startsWith(tagKey(k).slice(0, 4)))?.[0] || 'autre';
+      const type = kindOf(ENTITY_KINDS, cells[1], 2) || 'autre';
       entities.push({ name, kind: type, about: cells[3] || '', ts: refs });
     }
   }
@@ -275,13 +279,13 @@ async function saveFactsDone() {
 function memoryActions(list) {
   const todo = list.filter((p) => ['none', 'stale'].includes(memoryStatus(p)));
   if (!state.llm?.url || !todo.length || state.batch) return [];
-  return [el('button', { type: 'button', class: 'pill accent small', onclick: () => runJobs(todo, extractMemory, 'Mémoire', ['mois lu', 'mois lus']) }, icon('spark'), `Lire ${plural(todo.length, 'mois', 'mois')}`)];
+  return [el('button', { type: 'button', class: 'pill accent small', onclick: () => runJobs(todo, extractMemory, t('batchMemory'), 'nMonthRead') }, icon('spark'), t('readN', plural(todo.length, 'nMonth')))];
 }
 
 function memoryNote(list) {
   const read = list.filter((p) => state.memory.has(p.key)).length;
   const stale = list.filter((p) => memoryStatus(p) === 'stale').length;
-  return `${num(read)} mois lus sur ${num(list.length)}${stale ? ` · ${num(stale)} à relire (résumés changés)` : ''} · tiré des résumés, une requête par mois`;
+  return `${t('mNote', num(read), num(list.length))}${stale ? t('mStale', num(stale)) : ''}${t('mFrom')}`;
 }
 
 function factsView() {
@@ -293,19 +297,19 @@ function factsView() {
   for (const fact of facts) if (!state.factsDone.has(fact.id)) counts.set(fact.type, (counts.get(fact.type) || 0) + 1);
   const type = state.factType || 'all';
   const shown = facts.filter((x) => (type === 'all' || x.type === type) && (state.showDone || !state.factsDone.has(x.id))).sort((a, b) => a.ts - b.ts);
-  const out = [head('À retenir', memoryNote(months), ...memoryActions(months))];
+  const out = [head(t('toRemember'), memoryNote(months), ...memoryActions(months))];
   out.push(
     el(
       'div',
       { class: 'toolbar' },
-      el('button', { type: 'button', class: `chip${type === 'all' ? ' on' : ''}`, text: 'Tout', onclick: () => ((state.factType = 'all'), renderMain()) }),
+      el('button', { type: 'button', class: `chip${type === 'all' ? ' on' : ''}`, text: t('fEverything'), onclick: () => ((state.factType = 'all'), renderMain()) }),
       FACT_TYPES.map(([k, label]) => el('button', { type: 'button', class: `chip fact-${k}${type === k ? ' on' : ''}`, onclick: () => ((state.factType = k), renderMain()) }, label, counts.get(k) ? el('span', { class: 'n', text: ` ${num(counts.get(k))}` }) : null)),
       el('span', { class: 'grow' }),
-      switchControl('Voir ce qui est réglé', !!state.showDone, () => ((state.showDone = !state.showDone), renderMain())),
+      switchControl(t('showSettled'), !!state.showDone, () => ((state.showDone = !state.showDone), renderMain())),
     ),
   );
   if (!facts.length) {
-    out.push(el('p', { class: 'edge', text: state.memory.size ? 'Rien à retenir sur cette période.' : 'Clique sur « Lire » pour que le LLM relève les promesses, projets, dates et sujets en suspens de tes résumés.' }));
+    out.push(el('p', { class: 'edge', text: t(state.memory.size ? 'nothingToRemember' : 'clickRead') }));
     return out;
   }
   let month = '';
@@ -328,7 +332,7 @@ function factsView() {
             class: 'check',
             role: 'checkbox',
             'aria-checked': String(done),
-            title: done ? 'Remettre à faire' : 'Marquer comme réglé',
+            title: t(done ? 'markUndone' : 'markSettled'),
             onclick: async () => {
               if (done) state.factsDone.delete(fact.id);
               else state.factsDone.set(fact.id, Date.now());
@@ -341,15 +345,15 @@ function factsView() {
         el(
           'div',
           { class: 'ftext' },
-          el('span', { class: `ftype fact-${fact.type}`, text: FACT_TYPES.find(([k]) => k === fact.type)?.[1].replace(/s$/, '') || fact.type }),
+          el('span', { class: `ftype fact-${fact.type}`, text: FACT_TYPES.find(([k]) => k === fact.type)?.[3] || fact.type }),
           el('span', { dir: 'auto', text: fact.text }),
           fact.when && el('span', { class: 'muted', text: ` · ${fact.when}` }),
         ),
-        el('button', { type: 'button', class: 'convlink', text: `${cap(fmt.dayMid.format(conv.from))} ${fmt.time.format(conv.from)}`, title: 'Ouvrir la conversation', onclick: () => ((state.mode = 'resume'), openConv(conv.index)) }),
+        el('button', { type: 'button', class: 'convlink', text: `${cap(fmt.dayMid.format(conv.from))} ${fmt.time.format(conv.from)}`, title: t('openConvTitle'), onclick: () => ((state.mode = 'resume'), openConv(conv.index)) }),
       ),
     );
   }
-  if (!shown.length) out.push(el('p', { class: 'edge', text: 'Tout est réglé ici.' }));
+  if (!shown.length) out.push(el('p', { class: 'edge', text: t('allSettled') }));
   return out;
 }
 
@@ -378,13 +382,13 @@ function entityIndex() {
 function indexView() {
   const months = periods('month');
   const items = entityIndex();
-  const out = [head('Personnes et lieux', `${plural(items.length, 'nom', 'noms')} · ${memoryNote(months)}`, ...memoryActions(months))];
+  const out = [head(t('peoplePlaces'), `${plural(items.length, 'nName')} · ${memoryNote(months)}`, ...memoryActions(months))];
   if (!items.length) {
-    out.push(el('p', { class: 'edge', text: 'Clique sur « Lire » : le LLM relève dans tes résumés les personnes et les lieux dont vous parlez, avec qui ils sont.' }));
+    out.push(el('p', { class: 'edge', text: t('clickReadIndex') }));
     return out;
   }
   for (const [kind, label] of ENTITY_KINDS) {
-    const list = items.filter((i) => i.kind === kind).sort((a, b) => b.ts.size - a.ts.size || a.name.localeCompare(b.name, 'fr'));
+    const list = items.filter((i) => i.kind === kind).sort((a, b) => b.ts.size - a.ts.size || a.name.localeCompare(b.name, LANG));
     if (!list.length) continue;
     out.push(
       el('h3', { class: 'group', text: label }),
@@ -398,8 +402,8 @@ function indexView() {
             el(
               'div',
               { class: 'ehead' },
-              el('button', { type: 'button', class: 'ename', text: item.name, title: 'Chercher ce nom', onclick: () => searchFor(item.name) }),
-              el('span', { class: 'muted', text: ` · ${plural(item.ts.size, 'conversation', 'conversations')}` }),
+              el('button', { type: 'button', class: 'ename', text: item.name, title: t('searchName'), onclick: () => searchFor(item.name) }),
+              el('span', { class: 'muted', text: ` · ${plural(item.ts.size, 'nConv')}` }),
             ),
             item.about && el('p', { class: 'muted', text: item.about }),
             el(
@@ -442,9 +446,9 @@ const savedAsk = (question) => state.asks.get(`${state.thread.id}|${hash(questio
 
 function asksView() {
   const list = [...state.asks.values()].sort((a, b) => b.at - a.at);
-  const out = [head('Questions', `${plural(list.length, 'question posée', 'questions posées')} · les réponses sont gardées : reposer la même question ne coûte rien`)];
+  const out = [head(t('questions'), plural(list.length, 'nQuestionAsked') + t('asksKept'))];
   if (!list.length) {
-    out.push(el('p', { class: 'edge', text: 'Tape une question dans la recherche (par exemple « quand est-ce qu’on a parlé de déménager ? »), puis « Demander à Fil ».' }));
+    out.push(el('p', { class: 'edge', text: t('asksEmpty') }));
     return out;
   }
   for (const ask of list) {
@@ -455,16 +459,16 @@ function asksView() {
         el(
           'div',
           { class: 'chead' },
-          el('button', { type: 'button', class: 'when', text: ask.query, title: 'Revoir cette recherche', onclick: () => searchFor(ask.query) }),
-          el('span', { class: 'muted', text: ` · le ${fmt.date.format(ask.at)}${ask.scope ? ` · ${plural(ask.scope, 'résumé lu', 'résumés lus')}` : ''}` }),
+          el('button', { type: 'button', class: 'when', text: ask.query, title: t('seeSearchAgain'), onclick: () => searchFor(ask.query) }),
+          el('span', { class: 'muted', text: `${t('askedOn', fmt.date.format(ask.at))}${ask.scope ? ` · ${plural(ask.scope, 'nSummaryRead')}` : ''}` }),
           el('span', { class: 'grow' }),
           el(
             'button',
             {
               type: 'button',
               class: 'reset',
-              title: 'Oublier cette question',
-              'aria-label': 'Oublier cette question',
+              title: t('forgetQuestion'),
+              'aria-label': t('forgetQuestion'),
               onclick: async () => {
                 await remove('asks', ask.key);
                 state.asks.delete(ask.key);
@@ -510,18 +514,14 @@ function resumesView() {
         ),
       ),
     ),
-    el('button', { type: 'button', class: `pill small${state.exportOpen ? ' on' : ''}`, onclick: () => ((state.exportOpen = !state.exportOpen), renderMain()) }, icon('save'), 'Exporter'),
+    el('button', { type: 'button', class: `pill small${state.exportOpen ? ' on' : ''}`, onclick: () => ((state.exportOpen = !state.exportOpen), renderMain()) }, icon('save'), t('exportBtn')),
   );
   return [content[0], nav, state.exportOpen && exportPanel(), ...content.slice(1)];
 }
 
 /* ---------- Mood band under the timeline ---------- */
 
-// Each ambiance tag keeps its colour everywhere (its place in the tag list), whatever its rank.
-function moodSlot(tag) {
-  const ambiance = state.tags.filter((t) => t.kind === 'ambiance').map((t) => t.name);
-  return (Math.max(0, ambiance.indexOf(tag)) % 6) + 1;
-}
+// Each ambiance tag keeps its colour everywhere: see moodSlot in home.js.
 
 function moodBand(start, end, pct) {
   const ambiance = new Set(state.tags.filter((t) => t.kind === 'ambiance').map((t) => t.name));
@@ -564,7 +564,7 @@ function moodBand(start, end, pct) {
               type: 'button',
               class: 'mcell',
               style: `left:${pct(b.from)};width:calc(${pct(b.to)} - ${pct(b.from)});background:var(--m${moodSlot(tag)});opacity:${(0.25 + 0.75 * (n / b.total)).toFixed(2)}`,
-              title: `${b.label} · ${tag} : ${n} conversation${n > 1 ? 's' : ''} sur ${b.total}`,
+              title: `${b.label} · ${t('moodCell', tag, plural(n, 'nConv'), num(b.total))}`,
               onclick: () => {
                 state.resView = 'convs';
                 state.filter = { ...state.filter, tags: [tag], from: b.from, to: b.to };

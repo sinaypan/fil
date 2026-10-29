@@ -4,23 +4,25 @@
 // Chrome's print preview. Nothing leaves the PC.
 
 const EXPORT_PARTS = [
-  ['months', 'Mois'],
-  ['weeks', 'Semaines'],
-  ['convs', 'Conversations'],
-  ['facts', 'À retenir'],
-  ['index', 'Personnes et lieux'],
+  ['months', t('months')],
+  ['weeks', t('weeks')],
+  ['convs', t('conversations')],
+  ['facts', t('toRemember')],
+  ['index', t('peoplePlaces')],
 ];
+
+const exportRange = (f, key) => t(key, f.from != null ? fmt.date.format(f.from) : t('exStart'), f.to != null ? fmt.date.format(f.to) : t('exToday'));
 
 function exportPanel() {
   state.exportParts ||= new Set(['months', 'convs', 'facts']);
   state.exportFormat ||= 'docx';
   const parts = state.exportParts;
   const f = state.filter;
-  const scope = f.from != null || f.to != null ? `du ${f.from != null ? fmt.date.format(f.from) : 'début'} au ${f.to != null ? fmt.date.format(f.to) : 'aujourd’hui'}` : 'toute la conversation';
+  const scope = f.from != null || f.to != null ? exportRange(f, 'exFromTo') : t('exWhole');
   return el(
     'div',
     { class: 'panel exportpanel' },
-    el('p', {}, el('b', { text: 'Exporter en document' }), el('span', { class: 'muted', text: ` · ${scope}${filterActive() ? ' (filtre actif)' : ''}` })),
+    el('p', {}, el('b', { text: t('exTitle') }), el('span', { class: 'muted', text: ` · ${scope}${filterActive() ? t('exFilterOn') : ''}` })),
     el(
       'div',
       { class: 'chips' },
@@ -44,9 +46,9 @@ function exportPanel() {
         el('button', { type: 'button', class: state.exportFormat === 'docx' ? 'on' : null, text: 'Word', onclick: () => ((state.exportFormat = 'docx'), renderMain()) }),
         el('button', { type: 'button', class: state.exportFormat === 'pdf' ? 'on' : null, text: 'PDF', onclick: () => ((state.exportFormat = 'pdf'), renderMain()) }),
       ]),
-      el('button', { type: 'button', class: 'pill accent small', disabled: !parts.size, onclick: runExport }, icon('save'), state.exportFormat === 'pdf' ? 'Ouvrir l’aperçu PDF' : 'Télécharger le fichier Word'),
+      el('button', { type: 'button', class: 'pill accent small', disabled: !parts.size, onclick: runExport }, icon('save'), t(state.exportFormat === 'pdf' ? 'exOpenPdf' : 'exDownloadWord')),
     ),
-    state.exportFormat === 'pdf' && el('p', { class: 'hint', text: 'Chrome ouvre son aperçu d’impression : choisis « Enregistrer au format PDF » comme imprimante.' }),
+    state.exportFormat === 'pdf' && el('p', { class: 'hint', text: t('exPdfHint') }),
   );
 }
 
@@ -66,10 +68,10 @@ function exportBlocks() {
   };
   const f = state.filter;
   add('title', `Fil · ${titleOf(thread)}`);
-  add('muted', `${f.from != null || f.to != null ? `Du ${f.from != null ? fmt.date.format(f.from) : 'début'} au ${f.to != null ? fmt.date.format(f.to) : 'aujourd’hui'}` : `Tout : ${spanText(thread)}`} · exporté le ${fmt.date.format(Date.now())}`);
+  add('muted', `${f.from != null || f.to != null ? exportRange(f, 'exFromToCap') : t('exAll', spanText(thread))}${t('exExportedOn', fmt.date.format(Date.now()))}`);
   for (const [kind, label] of [
-    ['months', 'Mois'],
-    ['weeks', 'Semaines'],
+    ['months', t('months')],
+    ['weeks', t('weeks')],
   ]) {
     if (!parts.has(kind)) continue;
     const list = periods(kind === 'months' ? 'month' : 'week').filter((p) => state.chapters.has(p.key));
@@ -86,24 +88,24 @@ function exportBlocks() {
     const months = periods('month');
     const facts = months.flatMap((p) => state.memory.get(p.key)?.facts || []).filter((x) => (f.from == null || x.ts >= f.from) && (f.to == null || x.ts <= f.to));
     if (facts.length) {
-      add('h1', 'À retenir');
+      add('h1', t('toRemember'));
       for (const [type, label] of FACT_TYPES) {
         const list = facts.filter((x) => x.type === type).sort((a, b) => a.ts - b.ts);
         if (!list.length) continue;
         add('h2', label);
-        for (const x of list) add('bullet', `${state.factsDone.has(x.id) ? '[réglé] ' : ''}${x.text}${x.when ? ` (${x.when})` : ''} — ${cap(fmt.dayMid.format(x.ts))} ${new Date(x.ts).getFullYear()}`);
+        for (const x of list) add('bullet', `${state.factsDone.has(x.id) ? t('exSettled') : ''}${x.text}${x.when ? ` (${x.when})` : ''} — ${cap(fmt.dayMid.format(x.ts))} ${new Date(x.ts).getFullYear()}`);
       }
     }
   }
   if (parts.has('index')) {
     const items = entityIndex();
     if (items.length) {
-      add('h1', 'Personnes et lieux');
+      add('h1', t('peoplePlaces'));
       for (const [kind, label] of ENTITY_KINDS) {
         const list = items.filter((i) => i.kind === kind).sort((a, b) => b.ts.size - a.ts.size);
         if (!list.length) continue;
         add('h2', label);
-        for (const i of list) add('bullet', `${i.name}${i.about ? ` : ${i.about}` : ''} (${plural(i.ts.size, 'conversation', 'conversations')})`);
+        for (const i of list) add('bullet', `${i.about ? t('exAbout', i.name, i.about) : i.name} (${plural(i.ts.size, 'nConv')})`);
       }
     }
   }
@@ -112,7 +114,7 @@ function exportBlocks() {
       .filter((c) => state.summary.has(c.index))
       .sort((a, b) => a.from - b.from);
     if (convs.length) {
-      add('h1', 'Conversations');
+      add('h1', t('conversations'));
       let month = '';
       for (const c of convs) {
         const m = cap(fmt.month.format(c.from));
@@ -122,7 +124,7 @@ function exportBlocks() {
         }
         const s = state.summary.get(c.index);
         add('h3', `${convLabel(c)}${s.title ? ` — ${s.title}` : ''}`);
-        if (s.tags.length) add('muted', `Tags : ${s.tags.join(', ')}`);
+        if (s.tags.length) add('muted', t('trTags', s.tags.join(', ')));
         addText(s.text);
       }
     }
@@ -132,13 +134,13 @@ function exportBlocks() {
 
 function runExport() {
   const blocks = exportBlocks();
-  if (blocks.length <= 2) return showNotice('Rien à exporter : écris d’abord des chapitres ou des résumés pour cette période.', 'error');
+  if (blocks.length <= 2) return showNotice(t('exNothing'), 'error');
   const name = `fil-${tagKey(titleOf(state.thread)).replace(/ /g, '-')}-${new Date().toISOString().slice(0, 10)}`;
   if (state.exportFormat === 'pdf') return printBlocks(blocks);
   const link = el('a', { href: URL.createObjectURL(docx(blocks)), download: `${name}.docx` });
   link.click();
   setTimeout(() => URL.revokeObjectURL(link.href), 30000);
-  showNotice(`Fichier Word enregistré dans Téléchargements : ${name}.docx`);
+  showNotice(t('exSaved', `${name}.docx`));
 }
 
 /* ---------- PDF: Chrome's print preview on a page made for paper ---------- */
@@ -186,7 +188,7 @@ function docx(blocks) {
       '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
     'word/document.xml': `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document ${W}><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`,
     'word/styles.xml': `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles ${W}>
-<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:lang w:val="fr-FR"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="80" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:lang w:val="${LANG}"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="80" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
 <w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style>
 <w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:pPr><w:spacing w:after="120"/></w:pPr><w:rPr><w:b/><w:color w:val="5856D6"/><w:sz w:val="48"/></w:rPr></w:style>
 <w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="360" w:after="120"/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:color w:val="5856D6"/><w:sz w:val="36"/></w:rPr></w:style>
